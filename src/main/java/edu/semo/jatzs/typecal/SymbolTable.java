@@ -45,7 +45,7 @@ public class SymbolTable
     }
 
     //returns the set of symbols
-    java.util.Set<String> getSymbols() {
+    public java.util.Set<String> getSymbols() {
         return map.keySet();
     }
 

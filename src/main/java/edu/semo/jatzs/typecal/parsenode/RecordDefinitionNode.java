@@ -28,4 +28,10 @@ public class RecordDefinitionNode implements ParseNode{
     public String getName() {
         return name;
     }
+    public void printTable() {
+        System.out.println("Symbol Table");
+        for(String s : sym.getSymbols()){
+            System.out.printf("%s\t\t%s\n", s, sym.getValue(s).toString());
+        }
+    }
 }

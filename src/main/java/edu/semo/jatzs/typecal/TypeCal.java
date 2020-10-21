@@ -1,4 +1,4 @@
-// Output created by jacc on Wed Oct 21 15:19:48 CDT 2020
+// Output created by jacc on Wed Oct 21 16:49:13 CDT 2020
 
 package edu.semo.jatzs.typecal;
 import edu.semo.jatzs.typecal.parsenode.*;
@@ -1173,6 +1173,8 @@ class TypeCal implements TypeCalTokens {
 
     private int yyr14() { // assign : ref EQUAL expr
         {
+      System.out.println("Reference: " + yysv[yysp-3]);
+      System.out.println("expr: " + yysv[yysp-1]);
           yyrv = new AssignmentNode((ReferenceNode)yysv[yysp-3], (ParseNode)yysv[yysp-1]);
       }
         yysv[yysp-=3] = yyrv;
@@ -1180,15 +1182,13 @@ class TypeCal implements TypeCalTokens {
     }
 
     private int yyr8() { // declaration : REAL ID
-        { yyrv = new DeclarationNode((String) yysv[yysp-1], Type.REAL);
-           System.out.println("Real Node: " + yysv[yysp-1]);}
+        { yyrv = new DeclarationNode((String) yysv[yysp-1], Type.REAL); }
         yysv[yysp-=2] = yyrv;
         return yypdeclaration();
     }
 
     private int yyr9() { // declaration : INT ID
-        { yyrv = new DeclarationNode((String) yysv[yysp-1], Type.INTEGER);
-           System.out.println("INT Node: " + yysv[yysp-1]);}
+        { yyrv = new DeclarationNode((String) yysv[yysp-1], Type.INTEGER); }
         yysv[yysp-=2] = yyrv;
         return yypdeclaration();
     }
@@ -1196,8 +1196,7 @@ class TypeCal implements TypeCalTokens {
     private int yyr10() { // declaration : ID ID
         { yyrv = new RecordDeclarationNode((String)yysv[yysp-2], (String)yysv[yysp-1]);
            System.out.println(yysv[yysp-2]);
-           System.out.println(yysv[yysp-1]);
-           }
+           System.out.println(yysv[yysp-1]);}
         yysv[yysp-=2] = yyrv;
         return yypdeclaration();
     }
@@ -1211,18 +1210,13 @@ class TypeCal implements TypeCalTokens {
     }
 
     private int yyr11() { // declaration_list : declaration_list SEMI declaration
-        { System.out.println(yysv[yysp-2] + " aasdgasedgads");
-             System.out.println(yysv[yysp-3] + " adsfasdfasdfasdfsadfasdf");
-             yyrv = addDeclaration(yysv[yysp-3], yysv[yysp-2]);
-
-             }
+        { yyrv = addDeclaration(yysv[yysp-3], yysv[yysp-1]); }
         yysv[yysp-=3] = yyrv;
         return 46;
     }
 
     private int yyr12() { // declaration_list : declaration
-        { yyrv = addDeclaration(null, yysv[yysp-1]);
-             System.out.println(yysv[yysp-1]);}
+        { yyrv = addDeclaration(null, yysv[yysp-1]); }
         yysv[yysp-=1] = yyrv;
         return 46;
     }
@@ -1333,7 +1327,7 @@ class TypeCal implements TypeCalTokens {
 
     private int yyr28() { // ref : ref DOT ID
         {
-        yyrv = new RecordReferenceNode((String) yysv[yysp-3], (String) yysv[yysp-2]);
+        yyrv = new RecordReferenceNode(((ReferenceNode) yysv[yysp-3]).getId(), (String) yysv[yysp-2]);
    }
         yysv[yysp-=3] = yyrv;
         return yypref();

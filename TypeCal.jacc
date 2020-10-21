@@ -42,20 +42,17 @@ statements: statements SEMI statement
 
 declaration: REAL ID
 
-           { $$ = new DeclarationNode((String) $2, Type.REAL);
-           System.out.println("Real Node: " + $2);}
+           { $$ = new DeclarationNode((String) $2, Type.REAL); }
            | INT ID
-           { $$ = new DeclarationNode((String) $2, Type.INTEGER);
-           System.out.println("INT Node: " + $2);}
+           { $$ = new DeclarationNode((String) $2, Type.INTEGER); }
            | ID ID
            { $$ = new RecordDeclarationNode((String)$1, (String)$2);
            System.out.println($1);
-           System.out.println($2);
-           }
+           System.out.println($2);}
            ;
 
 declaration_list: declaration_list SEMI declaration
-             { $$ = addDeclaration($1, $2); }
+             { $$ = addDeclaration($1, $3); }
              | declaration
              { $$ = addDeclaration(null, $1); }
              ;
@@ -71,6 +68,8 @@ record_definition: RECORD ID declaration_list END
 
 assign: ref EQUAL expr
       {
+      System.out.println("Reference: " + $1);
+      System.out.println("expr: " + $3);
           $$ = new AssignmentNode((ReferenceNode)$1, (ParseNode)$3);
       }
       ;
@@ -121,7 +120,7 @@ ref: ID
    }
    | ref DOT ID
    {
-        $$ = new RecordReferenceNode((String) $1, (String) $2);
+        $$ = new RecordReferenceNode(((ReferenceNode) $1).getId(), (String) $2);
    }
    ;
 

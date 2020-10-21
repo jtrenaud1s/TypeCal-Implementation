@@ -1,5 +1,6 @@
 record point
-    int x
+    real x;
+    real y
 end;
 
 real x;
