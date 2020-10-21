@@ -1226,7 +1226,7 @@ class TypeCal implements TypeCalTokens {
 
     private int yyr26() { // exp : LITERAL DOT LITERAL
         {
-       yyrv = new RealLiteralNode();
+       yyrv = new RealLiteralNode(value);
    }
         yysv[yysp-=3] = yyrv;
         return 4;
@@ -1285,7 +1285,7 @@ class TypeCal implements TypeCalTokens {
 
     private int yyr13() { // recorddefinition : RECORD ID declarations END
         {
-                    yyrv = new RecordDefinitionMode(yysv[yysp-4].toString(), (StatementListNode) yysv[yysp-2]);
+                    yyrv = new RecordDefinitionNode(yysv[yysp-4].toString(), (StatementListNode) yysv[yysp-2], name, sym);
                  }
         yysv[yysp-=4] = yyrv;
         return 7;

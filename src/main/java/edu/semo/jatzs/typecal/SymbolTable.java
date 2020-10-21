@@ -1,6 +1,7 @@
 package edu.semo.jatzs.typecal;
 
 import java.util.Map;
+import java.util.Set;
 
 public class SymbolTable
 {
@@ -42,7 +43,7 @@ public class SymbolTable
 
 
     //returns the set of symbols
-    java.util.Set<String> getSymbols() {
+    public Set<String> getSymbols() {
         return map.keySet();
     }
 

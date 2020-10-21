@@ -1,16 +1,15 @@
 package edu.semo.jatzs.typecal.parsenode;
 
 import edu.semo.jatzs.typecal.SymbolTable;
+import edu.semo.jatzs.typecal.TypeCalPT;
 
 public class RecordReferenceNode implements ParseNode{
-    private SymbolTable sym;
+    private String id;
+    private String child;
 
-    public RecordReferenceNode(ReferenceNode id, ReferenceNode symbol){
-        this.sym = new SymbolTable();
-    }
-
-    public Object getSymbol(ReferenceNode referenceNode) {
-        return sym.getValue(referenceNode.getId());
+    public RecordReferenceNode(String id, String child){
+        this.id = id;
+        this.child = child;
     }
 
     @Override
@@ -20,6 +19,18 @@ public class RecordReferenceNode implements ParseNode{
 
     @Override
     public ParseNode evaluate() {
+        if(TypeCalPT.getInstance().getSym().hasName(this.id)) {
+            SymbolTable s = (SymbolTable) TypeCalPT.getInstance().getSym().getValue(this.id);
+            if(s.hasName(this.child)) {
+                return (DeclarationNode) s.getValue(this.child);
+            } else {
+                System.out.println("Reference " + this.id + "." + this.child + " does not exist!");
+                System.exit(0);
+            }
+        } else {
+            System.out.println("Reference " + this.id + " does not exist!");
+            System.exit(0);
+        }
         return null;
     }
 }

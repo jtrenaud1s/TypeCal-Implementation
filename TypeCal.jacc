@@ -38,26 +38,31 @@ statements: statement
           ;
 
 declaration: REAL ID
-           {
-               $$ = new RealDeclarationNode((String) $2.toString());
-           }
+
+                {$$ = new DeclarationNode(Type.REAL, $2);}
            | INT ID
-           {
-               $$ = new IntegerDeclarationNode((String) $2.toString());
-           }
+                {$$ = new DeclarationNode(Type.INTEGER, $2);}
            | ID ID
            {
-               $$ = new IDDeclarationNode((String) $1.toString(), (String) $2.toString());
+                {$$ = new RecordDeclarationNode($1, $2);}
            }
            ;
 
-declarations: declaration
-            | declaration SEMI declarations
-            ;
+record_definition : RECORD ID declaration_list END
+             { $$ = new RecordDefinitionNode($2, (SymbolTable)$3); }
+             ;
 
-recorddefinition: RECORD ID declarations END
+declaration_list: declaration_list SEMI declaration
+             { $$ = addDeclaration($1, $2); }
+             | declaration
+             {$$ = addDeclaration(null, $1);
+             ;
+
+
+
+record_definition: RECORD ID declaration_list END
                  {
-                    $$ = new RecordDefinitionMode($1.toString(), (StatementListNode) $3);
+                    $$ = new RecordDefinitionNode($1.toString(), (SymbolTable) $3);
                  }
                  ;
 assign: ref EQUAL expr
@@ -99,11 +104,11 @@ exp: LPAREN expr RPAREN
    | ref
    | LITERAL
    {
-        $$ = new LiteralNode($1.toString())
+        $$ = new LiteralNode($1);
    }
    | LITERAL DOT LITERAL
    {
-       $$ = new RealLiteralNode()
+       $$ = new RealLiteralNode((Double) $1.$2D);
    }
    ;
 
@@ -113,7 +118,7 @@ ref: ID
    }
    | ref DOT ref
    {
-        $$ = ((RecordReferenceNode)$1).getSymbol((ReferenceNode)$2)
+        $$ = new RecordReferenceNode((String) $1, $2);
    }
    ;
 
@@ -134,6 +139,14 @@ ref: ID
     public TypeCalPT.PTNode getCalc()
     {
         return calc;
+    }
+
+    SymbolTable addDeclaration(Object sym, Object decl) {
+        if(sym == null)
+            sym = new SymbolTable();
+        SymbolTable table = (SymbolTable)sym;
+        table.add(((DeclarationNode)decl).getName(), (DeclarationNode)decl);
+        return table;
     }
 
 

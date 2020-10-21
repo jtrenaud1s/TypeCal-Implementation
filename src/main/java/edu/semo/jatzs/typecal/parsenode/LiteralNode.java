@@ -1,16 +1,20 @@
 package edu.semo.jatzs.typecal.parsenode;
 
 public class LiteralNode implements ParseNode{
-    public LiteralNode(String s) {
+    private int value;
+
+    public LiteralNode(int value) {
+        this.value = value;
     }
+
 
     @Override
     public Type getType() {
-        return null;
+        return Type.INTEGER;
     }
 
     @Override
     public Object evaluate() {
-        return null;
+        return value;
     }
 }
