@@ -19,7 +19,7 @@ public class BinaryOperationNode implements ParseNode{
     }
 
     @Override
-    public Object evaluate() {
+    public ParseNode evaluate() {
         Object lval;
         Object rval;
 
@@ -28,32 +28,32 @@ public class BinaryOperationNode implements ParseNode{
             rval = right.evaluate();
             switch(operation) {
                 case "+":
-                    return (Integer) lval + (Integer) rval;
+                    return new LiteralNode((Integer) lval + (Integer) rval);
                 case "-":
-                    return (Integer)lval - (Integer)rval;
+                    return new LiteralNode((Integer)lval - (Integer)rval);
                 case "*":
-                    return (Integer)lval * (Integer)rval;
+                    return new LiteralNode((Integer)lval * (Integer)rval);
                 case "/":
-                    return (Integer)lval / (Integer)rval;
+                    return new LiteralNode((Integer)lval / (Integer)rval);
                 case "**":
-                    return Math.pow((Integer)lval, (Integer)rval);
+                    return new LiteralNode((int)Math.pow((Integer)lval, (Integer)rval));
             }
         } else if (getType().equals(Type.REAL)) {
             lval = left.evaluate();
             rval = right.evaluate();
             switch(operation) {
                 case "+":
-                    return (Double) lval + (Double) rval;
+                    return new RealLiteralNode((Double) lval + (Double) rval);
                 case "-":
-                    return (Double)lval - (Double) rval;
+                    return new RealLiteralNode((Double)lval - (Double) rval);
                 case "*":
-                    return (Double)lval * (Double) rval;
+                    return new RealLiteralNode((Double)lval * (Double) rval);
                 case "/":
-                    return (Double)lval / (Double) rval;
+                    return new RealLiteralNode((Double)lval / (Double) rval);
                 case "**":
-                    return Math.pow((Integer)lval, (Integer) rval);
+                    return new RealLiteralNode(Math.pow((Integer)lval, (Integer) rval));
             }
         }
-        return 0;
+        return null;
     }
 }

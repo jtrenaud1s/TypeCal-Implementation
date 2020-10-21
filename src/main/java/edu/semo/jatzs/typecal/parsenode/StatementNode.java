@@ -11,7 +11,7 @@ public class StatementNode implements ParseNode{
     }
 
     @Override
-    public Object evaluate() {
+    public ParseNode evaluate() {
         return statement.evaluate();
     }
 }

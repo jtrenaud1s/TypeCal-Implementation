@@ -10,7 +10,9 @@ public class AssignmentNode implements ParseNode{
     public AssignmentNode(ReferenceNode referenceNode, ParseNode parseNode) {
         this.referenceNode = referenceNode;
         this.parseNode = parseNode;
-        if(Util.typeOf(referenceNode)!= Util.typeOf(parseNode)){
+        System.out.println(parseNode);
+        System.out.println(referenceNode);
+        if(referenceNode.getType().equals((parseNode.evaluate()))){
             System.out.println("Types are not compatible!");
             System.exit(0);
         }
@@ -22,8 +24,8 @@ public class AssignmentNode implements ParseNode{
     }
 
     @Override
-    public Object evaluate() {
-        Object rhs = parseNode.evaluate();
+    public ParseNode evaluate() {
+        ParseNode rhs = parseNode.evaluate();
         if(parseNode.getType().equals(referenceNode.getType())){
             TypeCalPT.getInstance().getSym().assignValue(this.referenceNode.getId(), rhs);
             return rhs;

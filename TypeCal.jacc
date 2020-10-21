@@ -1,16 +1,19 @@
 //JACC Implementation of the TypeCal Grammar
 %class TypeCal
+%package edu.semo.jatzs.typecal
 %interface TypeCalTokens
 %next next()
 %get lexer.getToken()
 %semantic Object : lexer.getValue()
 %token EQUAL ID ADD SUB MUL DIV EXP LITERAL LPAREN RPAREN SEMI
-%token REAL INT END RECORD DOT INTEGER
+%token REAL INT END RECORD DOT
 
 %right EQUAL
 %left ADD SUB
 %left MUL DIV
 %right EXP
+
+%{import edu.semo.jatzs.typecal.parsenode.*;%}
 
 %%
 
@@ -22,112 +25,127 @@ calc: statements
 
 statement: assign
          | declaration
-         | recorddefinition
+         | record_definition
          | expr
          ;
 
-statements: statement
+statements: statements SEMI statement
           {
-              $$ = new StatementNode((StatementNode) $1);
-          }
-          | statements SEMI statement
-          {
-              ((StatementListNode) $1).add((StatementNode) $2);
+              ((StatementListNode) $1).add(new StatementNode((ParseNode) $3));
               $$=$1;
           }
+          | statement
+                      {
+                          $$ = new StatementListNode(new StatementNode((ParseNode) $1));
+                      }
           ;
 
 declaration: REAL ID
 
-                {$$ = new DeclarationNode(Type.REAL, $2);}
+           { $$ = new DeclarationNode((String) $2, Type.REAL);
+           System.out.println("Real Node: " + $2);}
            | INT ID
-                {$$ = new DeclarationNode(Type.INTEGER, $2);}
+           { $$ = new DeclarationNode((String) $2, Type.INTEGER);
+           System.out.println("INT Node: " + $2);}
            | ID ID
-           {
-                {$$ = new RecordDeclarationNode($1, $2);}
+           { $$ = new RecordDeclarationNode((String)$1, (String)$2);
+           System.out.println($1);
+           System.out.println($2);
            }
            ;
 
-record_definition : RECORD ID declaration_list END
-             { $$ = new RecordDefinitionNode($2, (SymbolTable)$3); }
-             ;
-
 declaration_list: declaration_list SEMI declaration
-             { $$ = addDeclaration($1, $2); }
+             { System.out.println($2 + " aasdgasedgads");
+             System.out.println($1 + " adsfasdfasdfasdfsadfasdf");
+             $$ = addDeclaration($1, $2);
+
+             }
+
              | declaration
-             {$$ = addDeclaration(null, $1);
+             { $$ = addDeclaration(null, $1);
+             System.out.println($1);}
              ;
 
 
 
 record_definition: RECORD ID declaration_list END
                  {
-                    $$ = new RecordDefinitionNode($1.toString(), (SymbolTable) $3);
+                    $$ = new RecordDefinitionNode((String) $2.toString(), (SymbolTable) $3);
+                    System.out.println("Record Definition: " + $2.toString());
                  }
                  ;
+
 assign: ref EQUAL expr
       {
           $$ = new AssignmentNode((ReferenceNode)$1, (ParseNode)$3);
       }
       ;
+
 expr: term
     | expr ADD term
     {
-        $$ = new BinaryOperationNode((ParseNode)$1, '+', (ParseNode) $3);
+        $$ = new BinaryOperationNode((ParseNode)$1, "+", (ParseNode) $3);
     }
     | expr SUB term
     {
-        $$ = new BinaryOperationNode((ParseNode)$1, '-', (ParseNode) $3);
+        $$ = new BinaryOperationNode((ParseNode)$1, "-", (ParseNode) $3);
     }
     ;
 
 term: factor
     | term MUL factor
     {
-        $$ = new BinaryOperationNode((ParseNode)$1, '*', (ParseNode) $3);
+        $$ = new BinaryOperationNode((ParseNode)$1, "*", (ParseNode) $3);
     }
     | term DIV factor
     {
-        $$ = new BinaryOperationNode((ParseNode)$1, '/', (ParseNode) $3);
+        $$ = new BinaryOperationNode((ParseNode)$1, "/", (ParseNode) $3);
     }
     ;
 factor: exp EXP factor
       {
-          $$ = new BinaryOperationNode((ParseNode)$1, '**', (ParseNode) $3);
+          $$ = new BinaryOperationNode((ParseNode)$1, "**", (ParseNode) $3);
       }
       | exp
       ;
 exp: LPAREN expr RPAREN
-    {
-        $$ = new GroupNode((ParseNode) $2);
-    }
+   {
+       $$ = new GroupNode((ParseNode) $2);
+   }
    | ref
    | LITERAL
    {
-        $$ = new LiteralNode($1);
+       $$ = new LiteralNode((int) Double.parseDouble($1 + ""));
    }
-   | LITERAL DOT LITERAL
-   {
-       $$ = new RealLiteralNode((Double) $1.$2D);
-   }
+   | real
+
    ;
 
 ref: ID
    {
         $$ = new ReferenceNode((String) $1);
    }
-   | ref DOT ref
+   | ref DOT ID
    {
-        $$ = new RecordReferenceNode((String) $1, $2);
+        $$ = new RecordReferenceNode((String) $1, (String) $2);
    }
    ;
+
+
+real: LITERAL DOT LITERAL
+{
+   {
+       $$ = new RealLiteralNode(Double.parseDouble($1 + "." + $2));
+   }
+}
+;
 
 
 
 %%
     private TypeCalLexer lexer;
     private TypeCalPT pt;
-    private TypeCalPT.PTNode calc;
+    private ParseNode calc;
     
     public TypeCal(java.io.InputStream in)
     {
@@ -136,7 +154,7 @@ ref: ID
     }
 
 
-    public TypeCalPT.PTNode getCalc()
+    public ParseNode getCalc()
     {
         return calc;
     }
@@ -145,7 +163,7 @@ ref: ID
         if(sym == null)
             sym = new SymbolTable();
         SymbolTable table = (SymbolTable)sym;
-        table.add(((DeclarationNode)decl).getName(), (DeclarationNode)decl);
+        table.assignValue(((DeclarationNode)decl).getName(), decl);
         return table;
     }
 
@@ -171,6 +189,6 @@ ref: ID
             }
 
         } catch(Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
     }

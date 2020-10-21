@@ -10,7 +10,7 @@ public class ReferenceNode implements ParseNode{
 
     @Override
     public Type getType() {
-        return null;
+        return Type.NULL;
     }
 
     public void set(Object value) {
@@ -18,8 +18,8 @@ public class ReferenceNode implements ParseNode{
     }
 
     @Override
-    public Object evaluate() {
-        return TypeCalPT.getInstance().getSym().getValue(this.id);
+    public ParseNode evaluate() {
+        return (ParseNode) TypeCalPT.getInstance().getSym().getValue(this.id);
     }
 
     public String getId() {

@@ -8,11 +8,11 @@ public class GroupNode implements ParseNode{
 
     @Override
     public Type getType() {
-        return Util.typeOf(group);
+        return group.evaluate().getType();
     }
 
     @Override
-    public Object evaluate() {
+    public ParseNode evaluate() {
         return group.evaluate();
     }
 }

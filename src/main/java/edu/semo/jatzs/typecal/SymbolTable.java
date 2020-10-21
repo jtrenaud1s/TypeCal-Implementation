@@ -1,14 +1,11 @@
 package edu.semo.jatzs.typecal;
 
-import java.util.Map;
-import java.util.Set;
-
 public class SymbolTable
 {
     //the map of objects
-    private Map<String, Object> map;
+    private java.util.Map<String, Object> map;
 
-    //creates an empty symbol table 
+    //creates an empty symbol table
     public SymbolTable() {
         //create the map for storing the symbols
         map = new java.util.HashMap<String, Object>();
@@ -41,9 +38,14 @@ public class SymbolTable
         return map.containsKey(name);
     }
 
+    public SymbolTable clone() {
+        SymbolTable s = new SymbolTable();
+        s.map.putAll(this.map);
+        return s;
+    }
 
     //returns the set of symbols
-    public Set<String> getSymbols() {
+    java.util.Set<String> getSymbols() {
         return map.keySet();
     }
 
@@ -68,7 +70,7 @@ public class SymbolTable
                 System.out.println("Name? ");
                 name = scan.next();
             }
-            
+
             if(choice == 1) {
                 System.out.print("Value? ");
                 v = scan.nextDouble();

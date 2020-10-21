@@ -24,7 +24,7 @@ public class StatementListNode implements ParseNode {
 
     @Override
     public Type getType() {
-        return null;
+        return Type.NULL;
     }
 
     @Override

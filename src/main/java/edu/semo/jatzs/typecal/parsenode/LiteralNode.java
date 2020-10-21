@@ -14,7 +14,15 @@ public class LiteralNode implements ParseNode{
     }
 
     @Override
-    public Object evaluate() {
+    public ParseNode evaluate() {
+        return null;
+    }
+
+    public int getValue() {
         return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
     }
 }

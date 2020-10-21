@@ -9,11 +9,16 @@ public class DeclarationNode implements ParseNode {
         this.name = name;
         this.type = type;
         this.value = null;
+
     }
 
     public void setValue(ParseNode value) {
         this.value = value;
     }
+    public ParseNode getValue() {
+        return value;
+    }
+
 
     @Override
     public Type getType() {
@@ -21,7 +26,11 @@ public class DeclarationNode implements ParseNode {
     }
 
     @Override
-    public Object evaluate() {
-        return this.value;
+    public ParseNode evaluate() {
+        return value;
+    }
+
+    public String getName() {
+        return name;
     }
 }

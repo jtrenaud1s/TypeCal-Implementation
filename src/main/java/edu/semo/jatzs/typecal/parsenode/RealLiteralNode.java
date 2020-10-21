@@ -1,7 +1,7 @@
 package edu.semo.jatzs.typecal.parsenode;
 
 public class RealLiteralNode implements ParseNode{
-    private Double value;
+    private double value;
 
     public RealLiteralNode(Double value) {
         this.value = value;
@@ -13,7 +13,11 @@ public class RealLiteralNode implements ParseNode{
     }
 
     @Override
-    public Object evaluate() {
+    public ParseNode evaluate() {
+        return null;
+    }
+
+    public double getValue() {
         return value;
     }
 }

@@ -110,7 +110,7 @@ public class TypeCalLexer implements TypeCalTokens
         } else if(value.equals("record")) { 
             token = RECORD;
         } else if(value.equals("int")) {
-            token = INTEGER;
+            token = INT;
         } else {
             token = ID;
             value = sb.toString();
@@ -207,7 +207,7 @@ public class TypeCalLexer implements TypeCalTokens
         label[END] = "END";
         label[RECORD] = "RECORD";
         label[DOT] = "DOT";
-        label[INTEGER] = "INTEGER";
+        label[INT] = "INTEGER";
         label[ENDINPUT] = "ENDINPUT";
         label[error] = "error";
 

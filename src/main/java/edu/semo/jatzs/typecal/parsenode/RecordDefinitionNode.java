@@ -17,7 +17,15 @@ public class RecordDefinitionNode implements ParseNode{
     }
 
     @Override
-    public Object evaluate() {
+    public ParseNode evaluate() {
+        return null;
+    }
+
+    public SymbolTable getSym() {
         return sym;
+    }
+
+    public String getName() {
+        return name;
     }
 }

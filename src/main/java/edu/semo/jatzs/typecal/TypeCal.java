@@ -1,8 +1,7 @@
-package edu.semo.jatzs.typecal;// Output created by jacc on Tue Oct 20 15:00:00 CDT 2020
+// Output created by jacc on Wed Oct 21 15:19:48 CDT 2020
 
-
+package edu.semo.jatzs.typecal;
 import edu.semo.jatzs.typecal.parsenode.*;
-
 class TypeCal implements TypeCalTokens {
     private int yyss = 100;
     private int yytok;
@@ -27,7 +26,7 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 50:
+                case 51:
                     yyn = yys0();
                     continue;
 
@@ -36,13 +35,13 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 51:
+                case 52:
                     switch (yytok) {
-                        case TypeCalTokens.ENDINPUT:
-                            yyn = 100;
+                        case ENDINPUT:
+                            yyn = 102;
                             continue;
                     }
-                    yyn = 103;
+                    yyn = 105;
                     continue;
 
                 case 2:
@@ -50,14 +49,14 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 52:
+                case 53:
                     switch (yytok) {
-                        case TypeCalTokens.ENDINPUT:
-                        case TypeCalTokens.SEMI:
+                        case SEMI:
+                        case ENDINPUT:
                             yyn = yyr2();
                             continue;
                     }
-                    yyn = 103;
+                    yyn = 105;
                     continue;
 
                 case 3:
@@ -65,14 +64,14 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 53:
+                case 54:
                     switch (yytok) {
-                        case TypeCalTokens.ENDINPUT:
-                        case TypeCalTokens.SEMI:
+                        case SEMI:
+                        case ENDINPUT:
                             yyn = yyr3();
                             continue;
                     }
-                    yyn = 103;
+                    yyn = 105;
                     continue;
 
                 case 4:
@@ -80,7 +79,7 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 54:
+                case 55:
                     yyn = yys4();
                     continue;
 
@@ -89,20 +88,20 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 55:
+                case 56:
                     switch (yytok) {
-                        case TypeCalTokens.ADD:
-                            yyn = 19;
-                            continue;
-                        case TypeCalTokens.SUB:
+                        case ADD:
                             yyn = 20;
                             continue;
-                        case TypeCalTokens.ENDINPUT:
-                        case TypeCalTokens.SEMI:
+                        case SUB:
+                            yyn = 21;
+                            continue;
+                        case SEMI:
+                        case ENDINPUT:
                             yyn = yyr5();
                             continue;
                     }
-                    yyn = 103;
+                    yyn = 105;
                     continue;
 
                 case 6:
@@ -110,7 +109,7 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 56:
+                case 57:
                     yyn = yys6();
                     continue;
 
@@ -119,14 +118,8 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 57:
-                    switch (yytok) {
-                        case TypeCalTokens.ENDINPUT:
-                        case TypeCalTokens.SEMI:
-                            yyn = yyr4();
-                            continue;
-                    }
-                    yyn = 103;
+                case 58:
+                    yyn = yys7();
                     continue;
 
                 case 8:
@@ -134,8 +127,14 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 58:
-                    yyn = yys8();
+                case 59:
+                    switch (yytok) {
+                        case SEMI:
+                        case ENDINPUT:
+                            yyn = yyr4();
+                            continue;
+                    }
+                    yyn = 105;
                     continue;
 
                 case 9:
@@ -143,14 +142,8 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 59:
-                    switch (yytok) {
-                        case TypeCalTokens.ENDINPUT:
-                        case TypeCalTokens.SEMI:
-                            yyn = yyr6();
-                            continue;
-                    }
-                    yyn = 103;
+                case 60:
+                    yyn = yys9();
                     continue;
 
                 case 10:
@@ -158,16 +151,14 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 60:
+                case 61:
                     switch (yytok) {
-                        case TypeCalTokens.SEMI:
-                            yyn = 23;
-                            continue;
-                        case TypeCalTokens.ENDINPUT:
-                            yyn = yyr1();
+                        case SEMI:
+                        case ENDINPUT:
+                            yyn = yyr7();
                             continue;
                     }
-                    yyn = 103;
+                    yyn = 105;
                     continue;
 
                 case 11:
@@ -175,20 +166,24 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 61:
-                    yyn = yys11();
+                case 62:
+                    switch (yytok) {
+                        case SEMI:
+                            yyn = 24;
+                            continue;
+                        case ENDINPUT:
+                            yyn = yyr1();
+                            continue;
+                    }
+                    yyn = 105;
                     continue;
 
                 case 12:
                     yyst[yysp] = 12;
-                    yysv[yysp] = (lexer.getValue()
-                                 );
-                    yytok = (next()
-                            );
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 62:
+                case 63:
                     yyn = yys12();
                     continue;
 
@@ -201,13 +196,8 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 63:
-                    switch (yytok) {
-                        case TypeCalTokens.ID:
-                            yyn = 27;
-                            continue;
-                    }
-                    yyn = 103;
+                case 64:
+                    yyn = yys13();
                     continue;
 
                 case 14:
@@ -219,8 +209,13 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 64:
-                    yyn = yys14();
+                case 65:
+                    switch (yytok) {
+                        case ID:
+                            yyn = 28;
+                            continue;
+                    }
+                    yyn = 105;
                     continue;
 
                 case 15:
@@ -232,19 +227,8 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 65:
-                    switch (yytok) {
-                        case TypeCalTokens.LITERAL:
-                            yyn = 14;
-                            continue;
-                        case TypeCalTokens.LPAREN:
-                            yyn = 15;
-                            continue;
-                        case TypeCalTokens.ID:
-                            yyn = 31;
-                            continue;
-                    }
-                    yyn = 103;
+                case 66:
+                    yyn = yys15();
                     continue;
 
                 case 16:
@@ -256,13 +240,19 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 66:
+                case 67:
                     switch (yytok) {
-                        case TypeCalTokens.ID:
+                        case LITERAL:
+                            yyn = 15;
+                            continue;
+                        case LPAREN:
+                            yyn = 16;
+                            continue;
+                        case ID:
                             yyn = 32;
                             continue;
                     }
-                    yyn = 103;
+                    yyn = 105;
                     continue;
 
                 case 17:
@@ -274,13 +264,13 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 67:
+                case 68:
                     switch (yytok) {
-                        case TypeCalTokens.ID:
+                        case ID:
                             yyn = 33;
                             continue;
                     }
-                    yyn = 103;
+                    yyn = 105;
                     continue;
 
                 case 18:
@@ -292,19 +282,13 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 68:
+                case 69:
                     switch (yytok) {
-                        case TypeCalTokens.LITERAL:
-                            yyn = 14;
-                            continue;
-                        case TypeCalTokens.LPAREN:
-                            yyn = 15;
-                            continue;
-                        case TypeCalTokens.ID:
-                            yyn = 31;
+                        case ID:
+                            yyn = 34;
                             continue;
                     }
-                    yyn = 103;
+                    yyn = 105;
                     continue;
 
                 case 19:
@@ -316,19 +300,19 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 69:
+                case 70:
                     switch (yytok) {
-                        case TypeCalTokens.LITERAL:
-                            yyn = 14;
-                            continue;
-                        case TypeCalTokens.LPAREN:
+                        case LITERAL:
                             yyn = 15;
                             continue;
-                        case TypeCalTokens.ID:
-                            yyn = 31;
+                        case LPAREN:
+                            yyn = 16;
+                            continue;
+                        case ID:
+                            yyn = 32;
                             continue;
                     }
-                    yyn = 103;
+                    yyn = 105;
                     continue;
 
                 case 20:
@@ -340,19 +324,19 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 70:
+                case 71:
                     switch (yytok) {
-                        case TypeCalTokens.LITERAL:
-                            yyn = 14;
-                            continue;
-                        case TypeCalTokens.LPAREN:
+                        case LITERAL:
                             yyn = 15;
                             continue;
-                        case TypeCalTokens.ID:
-                            yyn = 31;
+                        case LPAREN:
+                            yyn = 16;
+                            continue;
+                        case ID:
+                            yyn = 32;
                             continue;
                     }
-                    yyn = 103;
+                    yyn = 105;
                     continue;
 
                 case 21:
@@ -364,13 +348,19 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 71:
+                case 72:
                     switch (yytok) {
-                        case TypeCalTokens.ID:
-                            yyn = 31;
+                        case LITERAL:
+                            yyn = 15;
+                            continue;
+                        case LPAREN:
+                            yyn = 16;
+                            continue;
+                        case ID:
+                            yyn = 32;
                             continue;
                     }
-                    yyn = 103;
+                    yyn = 105;
                     continue;
 
                 case 22:
@@ -382,19 +372,13 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 72:
+                case 73:
                     switch (yytok) {
-                        case TypeCalTokens.LITERAL:
-                            yyn = 14;
-                            continue;
-                        case TypeCalTokens.LPAREN:
-                            yyn = 15;
-                            continue;
-                        case TypeCalTokens.ID:
-                            yyn = 31;
+                        case ID:
+                            yyn = 38;
                             continue;
                     }
-                    yyn = 103;
+                    yyn = 105;
                     continue;
 
                 case 23:
@@ -406,8 +390,19 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 73:
-                    yyn = yys23();
+                case 74:
+                    switch (yytok) {
+                        case LITERAL:
+                            yyn = 15;
+                            continue;
+                        case LPAREN:
+                            yyn = 16;
+                            continue;
+                        case ID:
+                            yyn = 32;
+                            continue;
+                    }
+                    yyn = 105;
                     continue;
 
                 case 24:
@@ -419,19 +414,8 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 74:
-                    switch (yytok) {
-                        case TypeCalTokens.LITERAL:
-                            yyn = 14;
-                            continue;
-                        case TypeCalTokens.LPAREN:
-                            yyn = 15;
-                            continue;
-                        case TypeCalTokens.ID:
-                            yyn = 31;
-                            continue;
-                    }
-                    yyn = 103;
+                case 75:
+                    yyn = yys24();
                     continue;
 
                 case 25:
@@ -443,19 +427,19 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 75:
+                case 76:
                     switch (yytok) {
-                        case TypeCalTokens.LITERAL:
-                            yyn = 14;
-                            continue;
-                        case TypeCalTokens.LPAREN:
+                        case LITERAL:
                             yyn = 15;
                             continue;
-                        case TypeCalTokens.ID:
-                            yyn = 31;
+                        case LPAREN:
+                            yyn = 16;
+                            continue;
+                        case ID:
+                            yyn = 32;
                             continue;
                     }
-                    yyn = 103;
+                    yyn = 105;
                     continue;
 
                 case 26:
@@ -467,15 +451,19 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 76:
+                case 77:
                     switch (yytok) {
-                        case TypeCalTokens.ENDINPUT:
-                        case TypeCalTokens.SEMI:
-                        case TypeCalTokens.END:
-                            yyn = yyr10();
+                        case LITERAL:
+                            yyn = 15;
+                            continue;
+                        case LPAREN:
+                            yyn = 16;
+                            continue;
+                        case ID:
+                            yyn = 32;
                             continue;
                     }
-                    yyn = 103;
+                    yyn = 105;
                     continue;
 
                 case 27:
@@ -487,15 +475,15 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 77:
+                case 78:
                     switch (yytok) {
-                        case TypeCalTokens.ENDINPUT:
-                        case TypeCalTokens.SEMI:
-                        case TypeCalTokens.END:
-                            yyn = yyr9();
+                        case SEMI:
+                        case ENDINPUT:
+                        case END:
+                            yyn = yyr10();
                             continue;
                     }
-                    yyn = 103;
+                    yyn = 105;
                     continue;
 
                 case 28:
@@ -507,46 +495,19 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 78:
+                case 79:
                     switch (yytok) {
-                        case TypeCalTokens.LITERAL:
-                            yyn = 42;
+                        case SEMI:
+                        case ENDINPUT:
+                        case END:
+                            yyn = yyr9();
                             continue;
                     }
-                    yyn = 103;
+                    yyn = 105;
                     continue;
 
                 case 29:
                     yyst[yysp] = 29;
-                    if (++yysp>=yyst.length) {
-                        yyexpand();
-                    }
-                case 79:
-                    switch (yytok) {
-                        case TypeCalTokens.ADD:
-                            yyn = 19;
-                            continue;
-                        case TypeCalTokens.SUB:
-                            yyn = 20;
-                            continue;
-                        case TypeCalTokens.RPAREN:
-                            yyn = 43;
-                            continue;
-                    }
-                    yyn = 103;
-                    continue;
-
-                case 30:
-                    yyst[yysp] = 30;
-                    if (++yysp>=yyst.length) {
-                        yyexpand();
-                    }
-                case 80:
-                    yyn = yys30();
-                    continue;
-
-                case 31:
-                    yyst[yysp] = 31;
                     yysv[yysp] = (lexer.getValue()
                                  );
                     yytok = (next()
@@ -554,7 +515,41 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
+                case 80:
+                    switch (yytok) {
+                        case LITERAL:
+                            yyn = 43;
+                            continue;
+                    }
+                    yyn = 105;
+                    continue;
+
+                case 30:
+                    yyst[yysp] = 30;
+                    if (++yysp>=yyst.length) {
+                        yyexpand();
+                    }
                 case 81:
+                    switch (yytok) {
+                        case ADD:
+                            yyn = 20;
+                            continue;
+                        case SUB:
+                            yyn = 21;
+                            continue;
+                        case RPAREN:
+                            yyn = 44;
+                            continue;
+                    }
+                    yyn = 105;
+                    continue;
+
+                case 31:
+                    yyst[yysp] = 31;
+                    if (++yysp>=yyst.length) {
+                        yyexpand();
+                    }
+                case 82:
                     yyn = yys31();
                     continue;
 
@@ -567,15 +562,8 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 82:
-                    switch (yytok) {
-                        case TypeCalTokens.ENDINPUT:
-                        case TypeCalTokens.SEMI:
-                        case TypeCalTokens.END:
-                            yyn = yyr8();
-                            continue;
-                    }
-                    yyn = 103;
+                case 83:
+                    yyn = yys32();
                     continue;
 
                 case 33:
@@ -587,28 +575,39 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 83:
+                case 84:
                     switch (yytok) {
-                        case TypeCalTokens.INT:
-                            yyn = 13;
-                            continue;
-                        case TypeCalTokens.REAL:
-                            yyn = 16;
-                            continue;
-                        case TypeCalTokens.ID:
-                            yyn = 46;
+                        case SEMI:
+                        case ENDINPUT:
+                        case END:
+                            yyn = yyr8();
                             continue;
                     }
-                    yyn = 103;
+                    yyn = 105;
                     continue;
 
                 case 34:
                     yyst[yysp] = 34;
+                    yysv[yysp] = (lexer.getValue()
+                                 );
+                    yytok = (next()
+                            );
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 84:
-                    yyn = yys34();
+                case 85:
+                    switch (yytok) {
+                        case INT:
+                            yyn = 14;
+                            continue;
+                        case REAL:
+                            yyn = 17;
+                            continue;
+                        case ID:
+                            yyn = 47;
+                            continue;
+                    }
+                    yyn = 105;
                     continue;
 
                 case 35:
@@ -616,7 +615,7 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 85:
+                case 86:
                     yyn = yys35();
                     continue;
 
@@ -625,7 +624,7 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 86:
+                case 87:
                     yyn = yys36();
                     continue;
 
@@ -634,66 +633,12 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 87:
+                case 88:
                     yyn = yys37();
                     continue;
 
                 case 38:
                     yyst[yysp] = 38;
-                    if (++yysp>=yyst.length) {
-                        yyexpand();
-                    }
-                case 88:
-                    switch (yytok) {
-                        case TypeCalTokens.ADD:
-                            yyn = 19;
-                            continue;
-                        case TypeCalTokens.SUB:
-                            yyn = 20;
-                            continue;
-                        case TypeCalTokens.ENDINPUT:
-                        case TypeCalTokens.SEMI:
-                            yyn = yyr14();
-                            continue;
-                    }
-                    yyn = 103;
-                    continue;
-
-                case 39:
-                    yyst[yysp] = 39;
-                    if (++yysp>=yyst.length) {
-                        yyexpand();
-                    }
-                case 89:
-                    switch (yytok) {
-                        case TypeCalTokens.ENDINPUT:
-                        case TypeCalTokens.SEMI:
-                            yyn = yyr7();
-                            continue;
-                    }
-                    yyn = 103;
-                    continue;
-
-                case 40:
-                    yyst[yysp] = 40;
-                    if (++yysp>=yyst.length) {
-                        yyexpand();
-                    }
-                case 90:
-                    yyn = yys40();
-                    continue;
-
-                case 41:
-                    yyst[yysp] = 41;
-                    if (++yysp>=yyst.length) {
-                        yyexpand();
-                    }
-                case 91:
-                    yyn = yys41();
-                    continue;
-
-                case 42:
-                    yyst[yysp] = 42;
                     yysv[yysp] = (lexer.getValue()
                                  );
                     yytok = (next()
@@ -701,7 +646,61 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
+                case 89:
+                    yyn = yys38();
+                    continue;
+
+                case 39:
+                    yyst[yysp] = 39;
+                    if (++yysp>=yyst.length) {
+                        yyexpand();
+                    }
+                case 90:
+                    switch (yytok) {
+                        case ADD:
+                            yyn = 20;
+                            continue;
+                        case SUB:
+                            yyn = 21;
+                            continue;
+                        case SEMI:
+                        case ENDINPUT:
+                            yyn = yyr14();
+                            continue;
+                    }
+                    yyn = 105;
+                    continue;
+
+                case 40:
+                    yyst[yysp] = 40;
+                    if (++yysp>=yyst.length) {
+                        yyexpand();
+                    }
+                case 91:
+                    switch (yytok) {
+                        case SEMI:
+                        case ENDINPUT:
+                            yyn = yyr6();
+                            continue;
+                    }
+                    yyn = 105;
+                    continue;
+
+                case 41:
+                    yyst[yysp] = 41;
+                    if (++yysp>=yyst.length) {
+                        yyexpand();
+                    }
                 case 92:
+                    yyn = yys41();
+                    continue;
+
+                case 42:
+                    yyst[yysp] = 42;
+                    if (++yysp>=yyst.length) {
+                        yyexpand();
+                    }
+                case 93:
                     yyn = yys42();
                     continue;
 
@@ -714,43 +713,12 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 93:
+                case 94:
                     yyn = yys43();
                     continue;
 
                 case 44:
                     yyst[yysp] = 44;
-                    if (++yysp>=yyst.length) {
-                        yyexpand();
-                    }
-                case 94:
-                    switch (yytok) {
-                        case TypeCalTokens.SEMI:
-                            yyn = 47;
-                            continue;
-                        case TypeCalTokens.END:
-                            yyn = yyr11();
-                            continue;
-                    }
-                    yyn = 103;
-                    continue;
-
-                case 45:
-                    yyst[yysp] = 45;
-                    if (++yysp>=yyst.length) {
-                        yyexpand();
-                    }
-                case 95:
-                    switch (yytok) {
-                        case TypeCalTokens.END:
-                            yyn = 48;
-                            continue;
-                    }
-                    yyn = 103;
-                    continue;
-
-                case 46:
-                    yyst[yysp] = 46;
                     yysv[yysp] = (lexer.getValue()
                                  );
                     yytok = (next()
@@ -758,13 +726,40 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
+                case 95:
+                    yyn = yys44();
+                    continue;
+
+                case 45:
+                    yyst[yysp] = 45;
+                    if (++yysp>=yyst.length) {
+                        yyexpand();
+                    }
                 case 96:
                     switch (yytok) {
-                        case TypeCalTokens.ID:
-                            yyn = 26;
+                        case SEMI:
+                        case END:
+                            yyn = yyr12();
                             continue;
                     }
-                    yyn = 103;
+                    yyn = 105;
+                    continue;
+
+                case 46:
+                    yyst[yysp] = 46;
+                    if (++yysp>=yyst.length) {
+                        yyexpand();
+                    }
+                case 97:
+                    switch (yytok) {
+                        case END:
+                            yyn = 48;
+                            continue;
+                        case SEMI:
+                            yyn = 49;
+                            continue;
+                    }
+                    yyn = 105;
                     continue;
 
                 case 47:
@@ -776,19 +771,13 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 97:
+                case 98:
                     switch (yytok) {
-                        case TypeCalTokens.INT:
-                            yyn = 13;
-                            continue;
-                        case TypeCalTokens.REAL:
-                            yyn = 16;
-                            continue;
-                        case TypeCalTokens.ID:
-                            yyn = 46;
+                        case ID:
+                            yyn = 27;
                             continue;
                     }
-                    yyn = 103;
+                    yyn = 105;
                     continue;
 
                 case 48:
@@ -800,37 +789,62 @@ class TypeCal implements TypeCalTokens {
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 98:
+                case 99:
                     switch (yytok) {
-                        case TypeCalTokens.ENDINPUT:
-                        case TypeCalTokens.SEMI:
+                        case SEMI:
+                        case ENDINPUT:
                             yyn = yyr13();
                             continue;
                     }
-                    yyn = 103;
+                    yyn = 105;
                     continue;
 
                 case 49:
                     yyst[yysp] = 49;
+                    yysv[yysp] = (lexer.getValue()
+                                 );
+                    yytok = (next()
+                            );
                     if (++yysp>=yyst.length) {
                         yyexpand();
                     }
-                case 99:
+                case 100:
                     switch (yytok) {
-                        case TypeCalTokens.END:
-                            yyn = yyr12();
+                        case INT:
+                            yyn = 14;
+                            continue;
+                        case REAL:
+                            yyn = 17;
+                            continue;
+                        case ID:
+                            yyn = 47;
                             continue;
                     }
-                    yyn = 103;
+                    yyn = 105;
                     continue;
 
-                case 100:
-                    return true;
+                case 50:
+                    yyst[yysp] = 50;
+                    if (++yysp>=yyst.length) {
+                        yyexpand();
+                    }
                 case 101:
-                    yyerror("stack overflow");
+                    switch (yytok) {
+                        case SEMI:
+                        case END:
+                            yyn = yyr11();
+                            continue;
+                    }
+                    yyn = 105;
+                    continue;
+
                 case 102:
-                    return false;
+                    return true;
                 case 103:
+                    yyerror("stack overflow");
+                case 104:
+                    return false;
+                case 105:
                     yyerror("syntax error");
                     return false;
             }
@@ -850,292 +864,303 @@ class TypeCal implements TypeCalTokens {
 
     private int yys0() {
         switch (yytok) {
-            case TypeCalTokens.ID:
-                return 12;
-            case TypeCalTokens.INT:
+            case ID:
                 return 13;
-            case TypeCalTokens.LITERAL:
+            case INT:
                 return 14;
-            case TypeCalTokens.LPAREN:
+            case LITERAL:
                 return 15;
-            case TypeCalTokens.REAL:
+            case LPAREN:
                 return 16;
-            case TypeCalTokens.RECORD:
+            case REAL:
                 return 17;
+            case RECORD:
+                return 18;
         }
-        return 103;
+        return 105;
     }
 
     private int yys4() {
         switch (yytok) {
-            case TypeCalTokens.EXP:
-                return 18;
-            case TypeCalTokens.RPAREN:
-            case TypeCalTokens.MUL:
-            case TypeCalTokens.ENDINPUT:
-            case TypeCalTokens.SUB:
-            case TypeCalTokens.SEMI:
-            case TypeCalTokens.DIV:
-            case TypeCalTokens.ADD:
+            case EXP:
+                return 19;
+            case SEMI:
+            case RPAREN:
+            case MUL:
+            case ENDINPUT:
+            case SUB:
+            case DIV:
+            case ADD:
                 return yyr22();
         }
-        return 103;
+        return 105;
     }
 
     private int yys6() {
         switch (yytok) {
-            case TypeCalTokens.RPAREN:
-            case TypeCalTokens.MUL:
-            case TypeCalTokens.ENDINPUT:
-            case TypeCalTokens.SUB:
-            case TypeCalTokens.SEMI:
-            case TypeCalTokens.DIV:
-            case TypeCalTokens.ADD:
+            case SEMI:
+            case RPAREN:
+            case MUL:
+            case ENDINPUT:
+            case SUB:
+            case DIV:
+            case ADD:
                 return yyr18();
         }
-        return 103;
+        return 105;
     }
 
-    private int yys8() {
+    private int yys7() {
         switch (yytok) {
-            case TypeCalTokens.DOT:
-                return 21;
-            case TypeCalTokens.EQUAL:
+            case RPAREN:
+            case EXP:
+            case MUL:
+            case SEMI:
+            case ENDINPUT:
+            case SUB:
+            case DIV:
+            case ADD:
+                return yyr26();
+        }
+        return 105;
+    }
+
+    private int yys9() {
+        switch (yytok) {
+            case DOT:
                 return 22;
-            case TypeCalTokens.MUL:
-            case TypeCalTokens.EXP:
-            case TypeCalTokens.ENDINPUT:
-            case TypeCalTokens.SUB:
-            case TypeCalTokens.SEMI:
-            case TypeCalTokens.DIV:
-            case TypeCalTokens.ADD:
+            case EQUAL:
+                return 23;
+            case SEMI:
+            case EXP:
+            case MUL:
+            case ENDINPUT:
+            case SUB:
+            case DIV:
+            case ADD:
                 return yyr24();
         }
-        return 103;
-    }
-
-    private int yys11() {
-        switch (yytok) {
-            case TypeCalTokens.DIV:
-                return 24;
-            case TypeCalTokens.MUL:
-                return 25;
-            case TypeCalTokens.RPAREN:
-            case TypeCalTokens.ENDINPUT:
-            case TypeCalTokens.SUB:
-            case TypeCalTokens.SEMI:
-            case TypeCalTokens.ADD:
-                return yyr15();
-        }
-        return 103;
+        return 105;
     }
 
     private int yys12() {
         switch (yytok) {
-            case TypeCalTokens.ID:
+            case DIV:
+                return 25;
+            case MUL:
                 return 26;
-            case TypeCalTokens.MUL:
-            case TypeCalTokens.EXP:
-            case TypeCalTokens.DOT:
-            case TypeCalTokens.EQUAL:
-            case TypeCalTokens.ENDINPUT:
-            case TypeCalTokens.SUB:
-            case TypeCalTokens.SEMI:
-            case TypeCalTokens.DIV:
-            case TypeCalTokens.ADD:
-                return yyr27();
+            case SEMI:
+            case RPAREN:
+            case ENDINPUT:
+            case SUB:
+            case ADD:
+                return yyr15();
         }
-        return 103;
+        return 105;
     }
 
-    private int yys14() {
+    private int yys13() {
         switch (yytok) {
-            case TypeCalTokens.DOT:
-                return 28;
-            case TypeCalTokens.RPAREN:
-            case TypeCalTokens.MUL:
-            case TypeCalTokens.EXP:
-            case TypeCalTokens.ENDINPUT:
-            case TypeCalTokens.SUB:
-            case TypeCalTokens.SEMI:
-            case TypeCalTokens.DIV:
-            case TypeCalTokens.ADD:
-                return yyr25();
-        }
-        return 103;
-    }
-
-    private int yys23() {
-        switch (yytok) {
-            case TypeCalTokens.ID:
-                return 12;
-            case TypeCalTokens.INT:
-                return 13;
-            case TypeCalTokens.LITERAL:
-                return 14;
-            case TypeCalTokens.LPAREN:
-                return 15;
-            case TypeCalTokens.REAL:
-                return 16;
-            case TypeCalTokens.RECORD:
-                return 17;
-        }
-        return 103;
-    }
-
-    private int yys30() {
-        switch (yytok) {
-            case TypeCalTokens.DOT:
-                return 21;
-            case TypeCalTokens.RPAREN:
-            case TypeCalTokens.MUL:
-            case TypeCalTokens.EXP:
-            case TypeCalTokens.ENDINPUT:
-            case TypeCalTokens.SUB:
-            case TypeCalTokens.SEMI:
-            case TypeCalTokens.DIV:
-            case TypeCalTokens.ADD:
-                return yyr24();
-        }
-        return 103;
-    }
-
-    private int yys31() {
-        switch (yytok) {
-            case TypeCalTokens.ID:
-            case TypeCalTokens.LPAREN:
-            case TypeCalTokens.END:
-            case TypeCalTokens.INT:
-            case TypeCalTokens.REAL:
-            case TypeCalTokens.RECORD:
-            case TypeCalTokens.INTEGER:
-            case TypeCalTokens.error:
-            case TypeCalTokens.LITERAL:
-                return 103;
+            case LPAREN:
+            case INT:
+            case error:
+            case RPAREN:
+            case RECORD:
+            case REAL:
+            case END:
+            case LITERAL:
+                return 105;
+            case ID:
+                return 27;
         }
         return yyr27();
     }
 
-    private int yys34() {
+    private int yys15() {
         switch (yytok) {
-            case TypeCalTokens.RPAREN:
-            case TypeCalTokens.MUL:
-            case TypeCalTokens.ENDINPUT:
-            case TypeCalTokens.SUB:
-            case TypeCalTokens.SEMI:
-            case TypeCalTokens.DIV:
-            case TypeCalTokens.ADD:
-                return yyr21();
+            case DOT:
+                return 29;
+            case RPAREN:
+            case EXP:
+            case MUL:
+            case SEMI:
+            case ENDINPUT:
+            case SUB:
+            case DIV:
+            case ADD:
+                return yyr25();
         }
-        return 103;
+        return 105;
+    }
+
+    private int yys24() {
+        switch (yytok) {
+            case ID:
+                return 13;
+            case INT:
+                return 14;
+            case LITERAL:
+                return 15;
+            case LPAREN:
+                return 16;
+            case REAL:
+                return 17;
+            case RECORD:
+                return 18;
+        }
+        return 105;
+    }
+
+    private int yys31() {
+        switch (yytok) {
+            case DOT:
+                return 22;
+            case RPAREN:
+            case EXP:
+            case MUL:
+            case SEMI:
+            case ENDINPUT:
+            case SUB:
+            case DIV:
+            case ADD:
+                return yyr24();
+        }
+        return 105;
+    }
+
+    private int yys32() {
+        switch (yytok) {
+            case RPAREN:
+            case EXP:
+            case DOT:
+            case MUL:
+            case SEMI:
+            case ENDINPUT:
+            case SUB:
+            case DIV:
+            case ADD:
+                return yyr27();
+        }
+        return 105;
     }
 
     private int yys35() {
         switch (yytok) {
-            case TypeCalTokens.DIV:
-                return 24;
-            case TypeCalTokens.MUL:
-                return 25;
-            case TypeCalTokens.RPAREN:
-            case TypeCalTokens.ENDINPUT:
-            case TypeCalTokens.SUB:
-            case TypeCalTokens.SEMI:
-            case TypeCalTokens.ADD:
-                return yyr16();
+            case SEMI:
+            case RPAREN:
+            case MUL:
+            case ENDINPUT:
+            case SUB:
+            case DIV:
+            case ADD:
+                return yyr21();
         }
-        return 103;
+        return 105;
     }
 
     private int yys36() {
         switch (yytok) {
-            case TypeCalTokens.DIV:
-                return 24;
-            case TypeCalTokens.MUL:
+            case DIV:
                 return 25;
-            case TypeCalTokens.RPAREN:
-            case TypeCalTokens.ENDINPUT:
-            case TypeCalTokens.SUB:
-            case TypeCalTokens.SEMI:
-            case TypeCalTokens.ADD:
-                return yyr17();
+            case MUL:
+                return 26;
+            case SEMI:
+            case RPAREN:
+            case ENDINPUT:
+            case SUB:
+            case ADD:
+                return yyr16();
         }
-        return 103;
+        return 105;
     }
 
     private int yys37() {
         switch (yytok) {
-            case TypeCalTokens.DOT:
-                return 21;
-            case TypeCalTokens.RPAREN:
-            case TypeCalTokens.MUL:
-            case TypeCalTokens.EXP:
-            case TypeCalTokens.EQUAL:
-            case TypeCalTokens.ENDINPUT:
-            case TypeCalTokens.SUB:
-            case TypeCalTokens.SEMI:
-            case TypeCalTokens.DIV:
-            case TypeCalTokens.ADD:
-                return yyr28();
+            case DIV:
+                return 25;
+            case MUL:
+                return 26;
+            case SEMI:
+            case RPAREN:
+            case ENDINPUT:
+            case SUB:
+            case ADD:
+                return yyr17();
         }
-        return 103;
+        return 105;
     }
 
-    private int yys40() {
+    private int yys38() {
         switch (yytok) {
-            case TypeCalTokens.RPAREN:
-            case TypeCalTokens.MUL:
-            case TypeCalTokens.ENDINPUT:
-            case TypeCalTokens.SUB:
-            case TypeCalTokens.SEMI:
-            case TypeCalTokens.DIV:
-            case TypeCalTokens.ADD:
-                return yyr20();
+            case RECORD:
+            case LPAREN:
+            case error:
+            case ID:
+            case REAL:
+            case INT:
+            case END:
+            case LITERAL:
+                return 105;
         }
-        return 103;
+        return yyr28();
     }
 
     private int yys41() {
         switch (yytok) {
-            case TypeCalTokens.RPAREN:
-            case TypeCalTokens.MUL:
-            case TypeCalTokens.ENDINPUT:
-            case TypeCalTokens.SUB:
-            case TypeCalTokens.SEMI:
-            case TypeCalTokens.DIV:
-            case TypeCalTokens.ADD:
-                return yyr19();
+            case SEMI:
+            case RPAREN:
+            case MUL:
+            case ENDINPUT:
+            case SUB:
+            case DIV:
+            case ADD:
+                return yyr20();
         }
-        return 103;
+        return 105;
     }
 
     private int yys42() {
         switch (yytok) {
-            case TypeCalTokens.RPAREN:
-            case TypeCalTokens.MUL:
-            case TypeCalTokens.EXP:
-            case TypeCalTokens.ENDINPUT:
-            case TypeCalTokens.SUB:
-            case TypeCalTokens.SEMI:
-            case TypeCalTokens.DIV:
-            case TypeCalTokens.ADD:
-                return yyr26();
+            case SEMI:
+            case RPAREN:
+            case MUL:
+            case ENDINPUT:
+            case SUB:
+            case DIV:
+            case ADD:
+                return yyr19();
         }
-        return 103;
+        return 105;
     }
 
     private int yys43() {
         switch (yytok) {
-            case TypeCalTokens.RPAREN:
-            case TypeCalTokens.MUL:
-            case TypeCalTokens.EXP:
-            case TypeCalTokens.ENDINPUT:
-            case TypeCalTokens.SUB:
-            case TypeCalTokens.SEMI:
-            case TypeCalTokens.DIV:
-            case TypeCalTokens.ADD:
+            case RPAREN:
+            case EXP:
+            case MUL:
+            case SEMI:
+            case ENDINPUT:
+            case SUB:
+            case DIV:
+            case ADD:
+                return yyr29();
+        }
+        return 105;
+    }
+
+    private int yys44() {
+        switch (yytok) {
+            case RPAREN:
+            case EXP:
+            case MUL:
+            case SEMI:
+            case ENDINPUT:
+            case SUB:
+            case DIV:
+            case ADD:
                 return yyr23();
         }
-        return 103;
+        return 105;
     }
 
     private int yyr1() { // calc : statements
@@ -1155,24 +1180,23 @@ class TypeCal implements TypeCalTokens {
     }
 
     private int yyr8() { // declaration : REAL ID
-        {
-               yyrv = new RealDeclarationNode((String) yysv[yysp-1].toString());
-           }
+        { yyrv = new DeclarationNode((String) yysv[yysp-1], Type.REAL);
+           System.out.println("Real Node: " + yysv[yysp-1]);}
         yysv[yysp-=2] = yyrv;
         return yypdeclaration();
     }
 
     private int yyr9() { // declaration : INT ID
-        {
-               yyrv = new IntegerDeclarationNode((String) yysv[yysp-1].toString());
-           }
+        { yyrv = new DeclarationNode((String) yysv[yysp-1], Type.INTEGER);
+           System.out.println("INT Node: " + yysv[yysp-1]);}
         yysv[yysp-=2] = yyrv;
         return yypdeclaration();
     }
 
     private int yyr10() { // declaration : ID ID
-        {
-               yyrv = new IDDeclarationNode((String) yysv[yysp-2].toString(), (String) yysv[yysp-1].toString());
+        { yyrv = new RecordDeclarationNode((String)yysv[yysp-2], (String)yysv[yysp-1]);
+           System.out.println(yysv[yysp-2]);
+           System.out.println(yysv[yysp-1]);
            }
         yysv[yysp-=2] = yyrv;
         return yypdeclaration();
@@ -1180,33 +1204,33 @@ class TypeCal implements TypeCalTokens {
 
     private int yypdeclaration() {
         switch (yyst[yysp-1]) {
-            case 23: return 3;
-            case 0: return 3;
-            default: return 44;
+            case 49: return 50;
+            case 34: return 45;
+            default: return 3;
         }
     }
 
-    private int yyr11() { // declarations : declaration
-        yysp -= 1;
-        return yypdeclarations();
+    private int yyr11() { // declaration_list : declaration_list SEMI declaration
+        { System.out.println(yysv[yysp-2] + " aasdgasedgads");
+             System.out.println(yysv[yysp-3] + " adsfasdfasdfasdfsadfasdf");
+             yyrv = addDeclaration(yysv[yysp-3], yysv[yysp-2]);
+
+             }
+        yysv[yysp-=3] = yyrv;
+        return 46;
     }
 
-    private int yyr12() { // declarations : declaration SEMI declarations
-        yysp -= 3;
-        return yypdeclarations();
-    }
-
-    private int yypdeclarations() {
-        switch (yyst[yysp-1]) {
-            case 33: return 45;
-            default: return 49;
-        }
+    private int yyr12() { // declaration_list : declaration
+        { yyrv = addDeclaration(null, yysv[yysp-1]);
+             System.out.println(yysv[yysp-1]);}
+        yysv[yysp-=1] = yyrv;
+        return 46;
     }
 
     private int yyr23() { // exp : LPAREN expr RPAREN
         {
-        yyrv = new GroupNode((ParseNode) yysv[yysp-2]);
-    }
+       yyrv = new GroupNode((ParseNode) yysv[yysp-2]);
+   }
         yysv[yysp-=3] = yyrv;
         return 4;
     }
@@ -1218,17 +1242,14 @@ class TypeCal implements TypeCalTokens {
 
     private int yyr25() { // exp : LITERAL
         {
-        yyrv = new LiteralNode(yysv[yysp-1].toString());
+       yyrv = new LiteralNode((int) Double.parseDouble(yysv[yysp-1] + ""));
    }
         yysv[yysp-=1] = yyrv;
         return 4;
     }
 
-    private int yyr26() { // exp : LITERAL DOT LITERAL
-        {
-       yyrv = new RealLiteralNode(value);
-   }
-        yysv[yysp-=3] = yyrv;
+    private int yyr26() { // exp : real
+        yysp -= 1;
         return 4;
     }
 
@@ -1255,8 +1276,8 @@ class TypeCal implements TypeCalTokens {
 
     private int yypexpr() {
         switch (yyst[yysp-1]) {
-            case 22: return 38;
-            case 15: return 29;
+            case 23: return 39;
+            case 16: return 30;
             default: return 5;
         }
     }
@@ -1276,19 +1297,30 @@ class TypeCal implements TypeCalTokens {
 
     private int yypfactor() {
         switch (yyst[yysp-1]) {
+            case 26: return 42;
             case 25: return 41;
-            case 24: return 40;
-            case 18: return 34;
+            case 19: return 35;
             default: return 6;
         }
     }
 
-    private int yyr13() { // recorddefinition : RECORD ID declarations END
+    private int yyr29() { // real : LITERAL DOT LITERAL
         {
-                    yyrv = new RecordDefinitionNode(yysv[yysp-4].toString(), (StatementListNode) yysv[yysp-2], name, sym);
+   {
+       yyrv = new RealLiteralNode(Double.parseDouble(yysv[yysp-3] + "." + yysv[yysp-2]));
+   }
+}
+        yysv[yysp-=3] = yyrv;
+        return 7;
+    }
+
+    private int yyr13() { // record_definition : RECORD ID declaration_list END
+        {
+                    yyrv = new RecordDefinitionNode((String) yysv[yysp-3].toString(), (SymbolTable) yysv[yysp-2]);
+                    System.out.println("Record Definition: " + yysv[yysp-3].toString());
                  }
         yysv[yysp-=4] = yyrv;
-        return 7;
+        return 8;
     }
 
     private int yyr27() { // ref : ID
@@ -1299,9 +1331,9 @@ class TypeCal implements TypeCalTokens {
         return yypref();
     }
 
-    private int yyr28() { // ref : ref DOT ref
+    private int yyr28() { // ref : ref DOT ID
         {
-        yyrv = ((RecordReferenceNode)yysv[yysp-3]).getSymbol((ReferenceNode)yysv[yysp-2]);
+        yyrv = new RecordReferenceNode((String) yysv[yysp-3], (String) yysv[yysp-2]);
    }
         yysv[yysp-=3] = yyrv;
         return yypref();
@@ -1309,10 +1341,9 @@ class TypeCal implements TypeCalTokens {
 
     private int yypref() {
         switch (yyst[yysp-1]) {
-            case 23: return 8;
-            case 21: return 37;
-            case 0: return 8;
-            default: return 30;
+            case 24: return 9;
+            case 0: return 9;
+            default: return 31;
         }
     }
 
@@ -1326,7 +1357,7 @@ class TypeCal implements TypeCalTokens {
         return yypstatement();
     }
 
-    private int yyr4() { // statement : recorddefinition
+    private int yyr4() { // statement : record_definition
         yysp -= 1;
         return yypstatement();
     }
@@ -1338,26 +1369,26 @@ class TypeCal implements TypeCalTokens {
 
     private int yypstatement() {
         switch (yyst[yysp-1]) {
-            case 0: return 9;
-            default: return 39;
+            case 0: return 10;
+            default: return 40;
         }
     }
 
-    private int yyr6() { // statements : statement
+    private int yyr6() { // statements : statements SEMI statement
         {
-              yyrv = new StatementNode((ParseNode) yysv[yysp-1]);
-          }
-        yysv[yysp-=1] = yyrv;
-        return 10;
-    }
-
-    private int yyr7() { // statements : statements SEMI statement
-        {
-              ((StatementListNode) yysv[yysp-3]).add((StatementNode) yysv[yysp-2]);
+              ((StatementListNode) yysv[yysp-3]).add(new StatementNode((ParseNode) yysv[yysp-1]));
               yyrv=yysv[yysp-3];
           }
         yysv[yysp-=3] = yyrv;
-        return 10;
+        return 11;
+    }
+
+    private int yyr7() { // statements : statement
+        {
+                          yyrv = new StatementListNode(new StatementNode((ParseNode) yysv[yysp-1]));
+                      }
+        yysv[yysp-=1] = yyrv;
+        return 11;
     }
 
     private int yyr18() { // term : factor
@@ -1383,9 +1414,9 @@ class TypeCal implements TypeCalTokens {
 
     private int yypterm() {
         switch (yyst[yysp-1]) {
+            case 21: return 37;
             case 20: return 36;
-            case 19: return 35;
-            default: return 11;
+            default: return 12;
         }
     }
 
@@ -1406,6 +1437,14 @@ class TypeCal implements TypeCalTokens {
     public ParseNode getCalc()
     {
         return calc;
+    }
+
+    SymbolTable addDeclaration(Object sym, Object decl) {
+        if(sym == null)
+            sym = new SymbolTable();
+        SymbolTable table = (SymbolTable)sym;
+        table.assignValue(((DeclarationNode)decl).getName(), decl);
+        return table;
     }
 
 
@@ -1430,7 +1469,7 @@ class TypeCal implements TypeCalTokens {
             }
 
         } catch(Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 
