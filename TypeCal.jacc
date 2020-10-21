@@ -1,0 +1,163 @@
+//JACC Implementation of the TypeCal Grammar
+%class TypeCal
+%interface TypeCalTokens
+%next next()
+%get lexer.getToken()
+%semantic Object : lexer.getValue()
+%token EQUAL ID ADD SUB MUL DIV EXP LITERAL LPAREN RPAREN SEMI
+%token REAL INT END RECORD DOT INTEGER
+
+%right EQUAL
+%left ADD SUB
+%left MUL DIV
+%right EXP
+
+%%
+
+calc: statements
+    {
+        $$ = new CalcNode((StatementListNode) $1);
+    }
+    ;
+
+statement: assign
+         | declaration
+         | recorddefinition
+         | expr
+         ;
+
+statements: statement
+          {
+              $$ = new StatementNode((StatementNode) $1);
+          }
+          | statements SEMI statement
+          {
+              ((StatementListNode) $1).add((StatementNode) $2);
+              $$=$1;
+          }
+          ;
+
+declaration: REAL ID
+           {
+               $$ = new RealDeclarationNode((String) $2.toString());
+           }
+           | INT ID
+           {
+               $$ = new IntegerDeclarationNode((String) $2.toString());
+           }
+           | ID ID
+           {
+               $$ = new IDDeclarationNode((String) $1.toString(), (String) $2.toString());
+           }
+           ;
+
+declarations: declaration
+            | declaration SEMI declarations
+            ;
+
+recorddefinition: RECORD ID declarations END
+                 {
+                    $$ = new RecordDefinitionMode($1.toString(), (StatementListNode) $3);
+                 }
+                 ;
+assign: ref EQUAL expr
+      {
+          $$ = new AssignmentNode((ReferenceNode)$1, (ParseNode)$3);
+      }
+      ;
+expr: term
+    | expr ADD term
+    {
+        $$ = new BinaryOperationNode((ParseNode)$1, '+', (ParseNode) $3);
+    }
+    | expr SUB term
+    {
+        $$ = new BinaryOperationNode((ParseNode)$1, '-', (ParseNode) $3);
+    }
+    ;
+
+term: factor
+    | term MUL factor
+    {
+        $$ = new BinaryOperationNode((ParseNode)$1, '*', (ParseNode) $3);
+    }
+    | term DIV factor
+    {
+        $$ = new BinaryOperationNode((ParseNode)$1, '/', (ParseNode) $3);
+    }
+    ;
+factor: exp EXP factor
+      {
+          $$ = new BinaryOperationNode((ParseNode)$1, '**', (ParseNode) $3);
+      }
+      | exp
+      ;
+exp: LPAREN expr RPAREN
+    {
+        $$ = new GroupNode((ParseNode) $2);
+    }
+   | ref
+   | LITERAL
+   {
+        $$ = new LiteralNode($1.toString())
+   }
+   | LITERAL DOT LITERAL
+   {
+       $$ = new RealLiteralNode()
+   }
+   ;
+
+ref: ID
+   {
+        $$ = new ReferenceNode((String) $1);
+   }
+   | ref DOT ref
+   {
+        $$ = ((RecordReferenceNode)$1).getSymbol((ReferenceNode)$2)
+   }
+   ;
+
+
+
+%%
+    private TypeCalLexer lexer;
+    private TypeCalPT pt;
+    private TypeCalPT.PTNode calc;
+    
+    public TypeCal(java.io.InputStream in)
+    {
+        lexer = new TypeCalLexer(in);
+        pt = new TypeCalPT(this);
+    }
+
+
+    public TypeCalPT.PTNode getCalc()
+    {
+        return calc;
+    }
+
+
+    public int next() {
+        lexer.next();
+
+        return lexer.getToken();
+    }
+
+    
+    public void yyerror(String msg) {
+           lexer.printError("ERROR: " + msg);
+    }
+
+
+    public static void main(String [] args) {
+        try {
+            TypeCal parser = new TypeCal(new java.io.FileInputStream(args[0]));
+            parser.next();
+            if(parser.parse()) {
+                parser.getCalc().evaluate();
+            }
+
+        } catch(Exception e) {
+            System.out.println(e);
+        }
+    }

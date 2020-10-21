@@ -1,0 +1,40 @@
+<calc> ::=   <statement>{';' <statement>}
+
+<statement> ::=   <assign>
+                | <declaration>
+                | <record-definition>
+                | <expr>
+
+<delcaration> ::=   'real' <id>
+                  | 'int' <id>
+                  | <id> <id> 
+
+<record-definition> ::= 'record' <id> <declaration>{; <declaration>} 'end'
+
+<assign> ::= <ref> '=' <expr>
+
+<expr> ::=   <term>
+           | <expr> ('+'|'-') <term>
+
+<term> ::=   <factor>
+           | <term> ('*'|'/') <factor>
+
+<factor> ::=   <exp> '**' <factor>
+             | <exp> 
+
+<exp> ::=   (<expr>)
+          | <ref>
+          | <literal>
+
+<ref> ::=   <id>
+          | <ref>'.'<ref>
+
+<literal> ::= <integer-literal>
+              | <real-literal> 
+            
+<real-literal>    ::= <digit>{<digit>}['.'<digit>{<digit>}]
+<integer-literal> ::= <digit>{<digit>}
+
+<id> ::= <letter> (<letter>|<digit>)
+<letter> ::= The usual definition of "letter"
+<digit> ::= The usual definition of "digit"
