@@ -21,7 +21,7 @@ public class RecordReferenceNode extends ReferenceNode implements ParseNode{
     @Override
     public ParseNode evaluate() {
         if(TypeCalPT.getInstance().getSym().hasName(this.id)) {
-            SymbolTable s = (SymbolTable) TypeCalPT.getInstance().getSym().getValue(this.id);
+            SymbolTable s = ((RecordDefinitionNode) TypeCalPT.getInstance().getSym().getValue(this.id)).getSym();
             if(s.hasName(this.child)) {
                 return (DeclarationNode) s.getValue(this.child);
             } else {
@@ -30,6 +30,7 @@ public class RecordReferenceNode extends ReferenceNode implements ParseNode{
             }
         } else {
             System.out.println("Reference " + this.id + " does not exist!b");
+            TypeCalPT.getInstance().getSym().print();
             System.exit(0);
         }
         return null;

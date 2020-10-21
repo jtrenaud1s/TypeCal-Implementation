@@ -18,6 +18,7 @@ public class RecordDefinitionNode implements ParseNode{
 
     @Override
     public ParseNode evaluate() {
+
         return null;
     }
 

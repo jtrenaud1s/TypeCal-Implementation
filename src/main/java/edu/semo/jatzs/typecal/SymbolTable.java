@@ -91,4 +91,11 @@ public class SymbolTable
             System.out.printf("%s\t\t%s\n", s, table.getValue(s).toString());
         }
     }
+
+    public void print() {
+        System.out.println("Symbol Table");
+        for(String s : this.getSymbols()){
+            System.out.printf("%s\t\t%s\n", s, this.getValue(s).toString());
+        }
+    }
 }
