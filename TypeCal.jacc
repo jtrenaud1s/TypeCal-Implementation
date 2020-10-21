@@ -55,15 +55,9 @@ declaration: REAL ID
            ;
 
 declaration_list: declaration_list SEMI declaration
-             { System.out.println($2 + " aasdgasedgads");
-             System.out.println($1 + " adsfasdfasdfasdfsadfasdf");
-             $$ = addDeclaration($1, $2);
-
-             }
-
+             { $$ = addDeclaration($1, $2); }
              | declaration
-             { $$ = addDeclaration(null, $1);
-             System.out.println($1);}
+             { $$ = addDeclaration(null, $1); }
              ;
 
 
