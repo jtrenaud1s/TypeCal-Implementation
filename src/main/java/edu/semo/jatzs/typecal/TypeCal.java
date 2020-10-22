@@ -1210,10 +1210,12 @@ class TypeCal implements TypeCalTokens {
     }
 
     private int yyr24() { // exp : ref
-        {
         yyrv = yysv[yysp-1];
-        if(yyrv instanceof ReferenceNode)
-            System.out.println(((LiteralNode<?>)((ReferenceNode) yyrv).evaluate()).getValue());
+        LiteralNode<Double> value;
+        ReferenceNode ref = (ReferenceNode)yyrv;
+        if(ref.evaluate().getType().equals(Type.INTEGER) || ref.evaluate().getType().equals(Type.REAL)){
+           value = (LiteralNode<Double>) ref.evaluate();
+           System.out.println(value.getValue());
         }
         yysv[yysp-=1] = yyrv;
         return 4;
