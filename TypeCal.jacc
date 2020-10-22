@@ -5,7 +5,7 @@
 %next next()
 %get lexer.getToken()
 %semantic Object : lexer.getValue()
-%token EQUAL ID ADD SUB MUL DIV EXP LITERAL LPAREN RPAREN SEMI
+%token EQUAL ID ADD SUB MUL DIV EXP LITERAL LPAREN RPAREN SEMI DECIMAL
 %token REAL INT END RECORD DOT
 
 %right EQUAL
@@ -19,7 +19,7 @@
 
 calc: statements
     {
-        $$ = new CalcNode((StatementListNode) $1);
+        calc = new CalcNode((StatementListNode) $1);
     }
     ;
 
@@ -46,9 +46,7 @@ declaration: REAL ID
            | INT ID
            { $$ = new DeclarationNode((String) $2, Type.INTEGER); }
            | ID ID
-           { $$ = new RecordDeclarationNode((String)$1, (String)$2);
-           System.out.println($1);
-           System.out.println($2);}
+           { $$ = new RecordDeclarationNode((String)$1, (String)$2); }
            ;
 
 declaration_list: declaration_list SEMI declaration
@@ -62,14 +60,11 @@ declaration_list: declaration_list SEMI declaration
 record_definition: RECORD ID declaration_list END
                  {
                     $$ = new RecordDefinitionNode((String) $2.toString(), (SymbolTable) $3);
-                    System.out.println("Record Definition: " + $2.toString());
                  }
                  ;
 
 assign: ref EQUAL expr
       {
-      System.out.println("Reference: " + $1);
-      System.out.println("expr: " + $3);
           $$ = new AssignmentNode((ReferenceNode)$1, (ParseNode)$3);
       }
       ;
@@ -103,15 +98,24 @@ factor: exp EXP factor
       ;
 exp: LPAREN expr RPAREN
    {
+   System.out.println("Group Node " + $2);
        $$ = new GroupNode((ParseNode) $2);
    }
    | ref
+   {
+        $$ = $1;
+        System.out.println(((ReferenceNode)$1).getValue());
+   }
+   | DECIMAL
+      {
+          System.out.println("Got double " + $1);
+          $$ = new LiteralNode<Double>((Double)$1);
+      }
    | LITERAL
    {
-       $$ = new LiteralNode((int) Double.parseDouble($1 + ""));
+        System.out.println("Got Integer " +  $1);
+       $$ = new LiteralNode<Integer>((Integer)$1);
    }
-   | real
-
    ;
 
 ref: ID
@@ -120,18 +124,10 @@ ref: ID
    }
    | ref DOT ID
    {
-        $$ = new RecordReferenceNode(((ReferenceNode) $1).getId(), (String) $2);
+        $$ = new RecordReferenceNode(((ReferenceNode) $1).getId(), (String) $3);
    }
    ;
 
-
-real: LITERAL DOT LITERAL
-{
-   {
-       $$ = new RealLiteralNode(Double.parseDouble($1 + "." + $2));
-   }
-}
-;
 
 
 

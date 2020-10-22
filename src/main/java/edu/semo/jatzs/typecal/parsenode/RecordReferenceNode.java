@@ -11,19 +11,12 @@ public class RecordReferenceNode extends ReferenceNode implements ParseNode{
         super(id);
         this.id = id;
         this.child = child;
-    }
 
-    @Override
-    public Type getType() {
-        return Type.RECORD;
-    }
-
-    @Override
-    public ParseNode evaluate() {
         if(TypeCalPT.getInstance().getSym().hasName(this.id)) {
-            SymbolTable s = ((RecordDefinitionNode) TypeCalPT.getInstance().getSym().getValue(this.id)).getSym();
+            System.out.println(this.id + " " + this.child);
+            SymbolTable s = ((RecordDeclarationNode) TypeCalPT.getInstance().getSym().getValue(this.id)).getSym();
             if(s.hasName(this.child)) {
-                return (DeclarationNode) s.getValue(this.child);
+
             } else {
                 System.out.println("Reference " + this.id + "." + this.child + " does not exist!a");
                 System.exit(0);
@@ -33,7 +26,16 @@ public class RecordReferenceNode extends ReferenceNode implements ParseNode{
             TypeCalPT.getInstance().getSym().print();
             System.exit(0);
         }
-        return null;
+    }
+
+    @Override
+    public Type getType() {
+        return Type.RECORD;
+    }
+
+    @Override
+    public ParseNode evaluate() {
+        return ((DeclarationNode) (((RecordDeclarationNode) TypeCalPT.getInstance().getSym().getValue(this.id)).getSym()).getValue(this.child)).evaluate();
     }
 
     @Override

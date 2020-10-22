@@ -29,6 +29,10 @@ public class StatementListNode implements ParseNode {
 
     @Override
     public ParseNode evaluate() {
-        return null;
+        for (StatementNode s : statements) {
+            s.evaluate();
+        }
+
+        return this;
     }
 }

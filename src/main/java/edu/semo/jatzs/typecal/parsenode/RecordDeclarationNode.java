@@ -11,6 +11,22 @@ public class RecordDeclarationNode implements ParseNode{
     public RecordDeclarationNode(String record, String id) {
         this.record = record;
         this.id = id;
+
+        if(TypeCalPT.getInstance().getSym().hasName(record)){
+            if(!((ParseNode)TypeCalPT.getInstance().getSym().getValue(record)).getType().equals(Type.RECORD_DEF)) {
+                System.out.println(record + " does not name a type");
+                System.exit(0);
+            }
+            this.table = ((RecordDefinitionNode)TypeCalPT.getInstance().getSym().getValue(record)).getSym().clone();
+            TypeCalPT.getInstance().getSym().assignValue(id, this);
+        } else {
+            System.out.println(record + " does not name a type");
+            System.exit(0);
+        }
+    }
+
+    public SymbolTable getSym() {
+        return this.table;
     }
 
     public ParseNode get(String name) {
@@ -30,16 +46,7 @@ public class RecordDeclarationNode implements ParseNode{
 
     @Override
     public ParseNode evaluate() {
-        if(TypeCalPT.getInstance().getSym().hasName(record)){
-            if(!((ParseNode)TypeCalPT.getInstance().getSym().getValue(record)).getType().equals(Type.RECORD_DEF)) {
-                System.out.println(record + " does not name a type");
-                System.exit(0);
-            }
-            this.table = TypeCalPT.getInstance().getSym().clone();
-        } else {
-            System.out.println(record + " does not name a type");
-            System.exit(0);
-        }
+
         return null;
     }
 }

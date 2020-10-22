@@ -129,7 +129,6 @@ public class TypeCalLexer implements TypeCalTokens
             sb.append(currentChar);
             nextChar();
         }
-        value = Integer.valueOf(sb.toString());
         //grab the fractional part (if there is one)
         if(currentChar == '.') {
             sb.append('.');
@@ -138,9 +137,12 @@ public class TypeCalLexer implements TypeCalTokens
                 sb.append(currentChar);
                 nextChar();
             }
+        } else {
+            value = Integer.valueOf(sb.toString());
+            token = LITERAL;
+            return;
         }
-
-        token = LITERAL;
+        token = DECIMAL;
         value = Double.valueOf(sb.toString());
     }
 
@@ -172,6 +174,7 @@ public class TypeCalLexer implements TypeCalTokens
         } else if(Character.isDigit(currentChar)) {
             literal();
         } else if(singleMatch(c, ct)) {
+
             nextChar();
         } else if(currentChar == '*') {
             nextChar();
@@ -209,6 +212,7 @@ public class TypeCalLexer implements TypeCalTokens
         label[DOT] = "DOT";
         label[INT] = "INTEGER";
         label[ENDINPUT] = "ENDINPUT";
+        label[DECIMAL] = "DECIMAL";
         label[error] = "error";
 
         return label[token] + ": " + value;

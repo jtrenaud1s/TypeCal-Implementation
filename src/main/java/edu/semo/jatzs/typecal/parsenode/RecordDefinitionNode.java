@@ -1,6 +1,7 @@
 package edu.semo.jatzs.typecal.parsenode;
 
 import edu.semo.jatzs.typecal.SymbolTable;
+import edu.semo.jatzs.typecal.TypeCalPT;
 
 public class RecordDefinitionNode implements ParseNode{
     private String name;
@@ -9,6 +10,7 @@ public class RecordDefinitionNode implements ParseNode{
     public RecordDefinitionNode(String name, SymbolTable sym) {
         this.name = name;
         this.sym = sym;
+        TypeCalPT.getInstance().getSym().assignValue(name, this);
     }
 
     @Override
@@ -19,7 +21,7 @@ public class RecordDefinitionNode implements ParseNode{
     @Override
     public ParseNode evaluate() {
 
-        return null;
+        return this;
     }
 
     public SymbolTable getSym() {
@@ -28,11 +30,5 @@ public class RecordDefinitionNode implements ParseNode{
 
     public String getName() {
         return name;
-    }
-    public void printTable() {
-        System.out.println("Symbol Table");
-        for(String s : sym.getSymbols()){
-            System.out.printf("%s\t\t%s\n", s, sym.getValue(s).toString());
-        }
     }
 }

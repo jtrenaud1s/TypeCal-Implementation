@@ -10,12 +10,40 @@ public class AssignmentNode implements ParseNode{
     public AssignmentNode(ReferenceNode referenceNode, ParseNode parseNode) {
         this.referenceNode = referenceNode;
         this.parseNode = parseNode;
-        System.out.println(parseNode);
-        System.out.println(referenceNode);
-        if(referenceNode.getType().equals((parseNode.evaluate()))){
-            System.out.println("Types are not compatible!");
-            System.exit(0);
+        if (referenceNode instanceof RecordReferenceNode) {
+            System.out.println("record reference node");
+
+            String child = ((RecordReferenceNode) referenceNode).getChild();
+            if (TypeCalPT.getInstance().getSym().hasName(child)) {
+                DeclarationNode node = (DeclarationNode)(TypeCalPT.getInstance().getSym().getValue(child));
+                System.out.println(node.getClass());
+            if (!node.getType().equals(parseNode.getType())){
+                    if(!(referenceNode.getType().equals(Type.REAL) && parseNode.evaluate().getType().equals(Type.INTEGER)))
+                    {
+                        System.out.println("Types are not compatible!");
+                        System.out.println(node.getType());
+                        System.out.println(parseNode.getType());
+                        System.exit(0);
+                    }
+                }
+                ((DeclarationNode)((RecordDeclarationNode)TypeCalPT.getInstance().getSym().getValue(referenceNode.getId())).getSym().getValue(((RecordReferenceNode) referenceNode).getChild())).setValue(parseNode);
+
+            } else {
+                System.out.println("Record " + child + " does not exist");
+            }
+        } else {
+            System.out.println("Not record reference node");
+            if(!referenceNode.getType().equals(parseNode.evaluate().getType())){
+                if(!(referenceNode.getType().equals(Type.REAL) && parseNode.evaluate().getType().equals(Type.INTEGER)))
+                {
+                    System.out.println("Types are not compatible!");
+                    System.out.println(referenceNode.getType());
+                    System.out.println(parseNode.getType());
+                    System.exit(0);
+                }
+            }
         }
+
     }
 
     @Override
@@ -25,13 +53,6 @@ public class AssignmentNode implements ParseNode{
 
     @Override
     public ParseNode evaluate() {
-        ParseNode rhs = parseNode.evaluate();
-        if(parseNode.getType().equals(referenceNode.getType())){
-            TypeCalPT.getInstance().getSym().assignValue(this.referenceNode.getId(), rhs);
-            return rhs;
-        } else {
-            System.out.println("Incompatible types!");
-            return null;
-        }
+        return parseNode.evaluate();
     }
 }

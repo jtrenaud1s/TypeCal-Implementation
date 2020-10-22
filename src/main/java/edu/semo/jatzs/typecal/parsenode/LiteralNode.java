@@ -1,28 +1,39 @@
 package edu.semo.jatzs.typecal.parsenode;
 
-public class LiteralNode implements ParseNode{
-    private int value;
+import java.lang.reflect.ParameterizedType;
 
-    public LiteralNode(int value) {
+public class LiteralNode<T> implements ParseNode{
+    private T value;
+
+    public LiteralNode(T value) {
+
         this.value = value;
     }
 
 
     @Override
     public Type getType() {
-        return Type.INTEGER;
+        return value instanceof Integer ? Type.INTEGER : Type.REAL;
+
     }
 
     @Override
     public ParseNode evaluate() {
-        return null;
+        return this;
     }
 
-    public int getValue() {
+    public T getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(T value) {
         this.value = value;
+    }
+
+    public double asDouble() {
+        if (value instanceof Integer) {
+            return (double)((int) value);
+        }
+        return (double)value;
     }
 }
