@@ -150,8 +150,8 @@ public class TypeCalLexer implements TypeCalTokens
     // load the next token
     public void next() {
         // the keyword tokens
-        final char[] c = { '+', '-', '/', '=', ';', '(', ')', '.' };
-        final int[] ct = { ADD, SUB, DIV, EQUAL, SEMI, LPAREN, RPAREN, DOT };
+        final char[] c = { '+', '-', '/', '=', ';', '(', ')', '.', '-' };
+        final int[] ct = { ADD, SUB, DIV, EQUAL, SEMI, LPAREN, RPAREN, DOT, UNARY };
 
         // skip whitespace
         while (Character.isWhitespace(currentChar)) {

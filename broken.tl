@@ -4,13 +4,10 @@ record point
 end;
 
 real x;
-int y;
-y=1;
-y * 5;
 
 x=0;
 
-point p;
+p p;
 
 p.x = 23.5;
 p.y = 12.5;
