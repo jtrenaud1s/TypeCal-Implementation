@@ -23,8 +23,9 @@ calc: statements
 }
 ;
 
-statement: assign
-| declaration
+statement:  declaration
+| record_declaration
+| assign
 | record_definition
 | expr
 ;
@@ -44,11 +45,15 @@ declaration: REAL ID
 { $$ = new DeclarationNode((String) $2, Type.REAL); }
 | INT ID
 { $$ = new DeclarationNode((String) $2, Type.INTEGER); }
-| ID ID
+;
+
+record_declaration: ID ID
 { $$ = new RecordDeclarationNode((String)$1, (String)$2); }
 ;
 
 declaration_list: declaration_list SEMI declaration
+{ $$ = addDeclaration($1, (DeclarationNode)$3); }
+| declaration_list SEMI record_declaration
 { $$ = addDeclaration($1, (DeclarationNode)$3); }
 | declaration
 { $$ = addDeclaration(null, (DeclarationNode)$1); }
@@ -65,6 +70,10 @@ record_definition: RECORD ID declaration_list END
 assign: ref EQUAL expr
 {
     $$ = new AssignmentNode((ReferenceNode)$1, (ParseNode)$3);
+}
+| declaration EQUAL expr
+{
+    $$ = new AssignmentNode((ReferenceNode)((DeclarationNode)$1).evaluate(), (ParseNode)$3);
 }
 ;
 
