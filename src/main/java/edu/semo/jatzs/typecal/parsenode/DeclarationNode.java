@@ -19,7 +19,7 @@ public class DeclarationNode implements ParseNode {
     @Override
     public ParseNode evaluate() {
         TypeCalPT.getInstance().getSym().assignValue(name, new ValueNode(null, type));
-        return null;
+        return new ReferenceNode(this.name);
     }
 
     public String getName() {
