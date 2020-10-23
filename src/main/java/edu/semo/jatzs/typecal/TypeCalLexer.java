@@ -113,6 +113,10 @@ public class TypeCalLexer implements TypeCalTokens {
             token = WHILE;
         } else if (value.equals("do")) {
             token = DO;
+        } else if (value.equals("if")) {
+            token = IF;
+        } else if (value.equals("then")) {
+            token = THEN;
         } else {
             token = ID;
             value = sb.toString();
@@ -151,8 +155,8 @@ public class TypeCalLexer implements TypeCalTokens {
     // load the next token
     public void next() {
         // the keyword tokens
-        final char[] c = {'+', '-', '/', '=', ';', '(', ')', '.', '-'};
-        final int[] ct = {ADD, SUB, DIV, EQUAL, SEMI, LPAREN, RPAREN, DOT, UNARY};
+        final char[] c = {'+', '-', '/', ';', '(', ')', '.', '-'};
+        final int[] ct = {ADD, SUB, DIV, SEMI, LPAREN, RPAREN, DOT, UNARY};
 
         // skip whitespace
         while (Character.isWhitespace(currentChar)) {
@@ -261,6 +265,9 @@ public class TypeCalLexer implements TypeCalTokens {
         label[LEQ] = "LEQ";
         label[LESS] = "LESS";
         label[NEQ] = "NEQ";
+        label[IF] = "IF";
+        label[DO] = "DO";
+        label[THEN] = "THEN";
         label[error] = "error";
 
         return label[token] + ": " + value;
