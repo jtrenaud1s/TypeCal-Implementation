@@ -3,27 +3,25 @@
 package edu.semo.jatzs.typecal;
 import edu.semo.jatzs.typecal.parsenode.*;
 class TypeCal implements TypeCalTokens {
-    private int yyss = 100;
     private int yytok;
     private int yysp = 0;
     private int[] yyst;
-    protected int yyerrno = (-1);
     private Object[] yysv;
     private Object yyrv;
 
     public boolean parse() {
         int yyn = 0;
         yysp = 0;
+        int yyss = 100;
         yyst = new int[yyss];
         yysv = new Object[yyss];
         yytok = (lexer.getToken()
                  );
-    loop:
-        for (;;) {
+        for (; ; ) {
             switch (yyn) {
                 case 0:
                     yyst[yysp] = 0;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 88:
@@ -32,21 +30,20 @@ class TypeCal implements TypeCalTokens {
 
                 case 1:
                     yyst[yysp] = 1;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 89:
-                    switch (yytok) {
-                        case ENDINPUT:
-                            yyn = 176;
-                            continue;
+                    if (yytok == ENDINPUT) {
+                        yyn = 176;
+                        continue;
                     }
                     yyn = 179;
                     continue;
 
                 case 2:
                     yyst[yysp] = 2;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 90:
@@ -62,7 +59,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 3:
                     yyst[yysp] = 3;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 91:
@@ -81,7 +78,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 4:
                     yyst[yysp] = 4;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 92:
@@ -90,7 +87,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 5:
                     yyst[yysp] = 5;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 93:
@@ -99,7 +96,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 6:
                     yyst[yysp] = 6;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 94:
@@ -121,7 +118,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 7:
                     yyst[yysp] = 7;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 95:
@@ -130,7 +127,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 8:
                     yyst[yysp] = 8;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 96:
@@ -146,7 +143,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 9:
                     yyst[yysp] = 9;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 97:
@@ -155,7 +152,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 10:
                     yyst[yysp] = 10;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 98:
@@ -171,7 +168,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 11:
                     yyst[yysp] = 11;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 99:
@@ -187,7 +184,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 12:
                     yyst[yysp] = 12;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 100:
@@ -196,7 +193,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 13:
                     yyst[yysp] = 13;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 101:
@@ -205,7 +202,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 14:
                     yyst[yysp] = 14;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 102:
@@ -221,7 +218,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 15:
                     yyst[yysp] = 15;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 103:
@@ -238,7 +235,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 16:
                     yyst[yysp] = 16;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 104:
@@ -247,7 +244,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 17:
                     yyst[yysp] = 17;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 105:
@@ -256,7 +253,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 18:
                     yyst[yysp] = 18;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 106:
@@ -273,10 +270,10 @@ class TypeCal implements TypeCalTokens {
                 case 19:
                     yyst[yysp] = 19;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 107:
@@ -286,10 +283,10 @@ class TypeCal implements TypeCalTokens {
                 case 20:
                     yyst[yysp] = 20;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 108:
@@ -299,17 +296,16 @@ class TypeCal implements TypeCalTokens {
                 case 21:
                     yyst[yysp] = 21;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 109:
-                    switch (yytok) {
-                        case LPAREN:
-                            yyn = 45;
-                            continue;
+                    if (yytok == LPAREN) {
+                        yyn = 45;
+                        continue;
                     }
                     yyn = 179;
                     continue;
@@ -317,17 +313,16 @@ class TypeCal implements TypeCalTokens {
                 case 22:
                     yyst[yysp] = 22;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 110:
-                    switch (yytok) {
-                        case ID:
-                            yyn = 46;
-                            continue;
+                    if (yytok == ID) {
+                        yyn = 46;
+                        continue;
                     }
                     yyn = 179;
                     continue;
@@ -335,10 +330,10 @@ class TypeCal implements TypeCalTokens {
                 case 23:
                     yyst[yysp] = 23;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 111:
@@ -348,10 +343,10 @@ class TypeCal implements TypeCalTokens {
                 case 24:
                     yyst[yysp] = 24;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 112:
@@ -378,17 +373,16 @@ class TypeCal implements TypeCalTokens {
                 case 25:
                     yyst[yysp] = 25;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 113:
-                    switch (yytok) {
-                        case ID:
-                            yyn = 50;
-                            continue;
+                    if (yytok == ID) {
+                        yyn = 50;
+                        continue;
                     }
                     yyn = 179;
                     continue;
@@ -396,17 +390,16 @@ class TypeCal implements TypeCalTokens {
                 case 26:
                     yyst[yysp] = 26;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 114:
-                    switch (yytok) {
-                        case ID:
-                            yyn = 51;
-                            continue;
+                    if (yytok == ID) {
+                        yyn = 51;
+                        continue;
                     }
                     yyn = 179;
                     continue;
@@ -414,10 +407,10 @@ class TypeCal implements TypeCalTokens {
                 case 27:
                     yyst[yysp] = 27;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 115:
@@ -441,17 +434,16 @@ class TypeCal implements TypeCalTokens {
                 case 28:
                     yyst[yysp] = 28;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 116:
-                    switch (yytok) {
-                        case LPAREN:
-                            yyn = 53;
-                            continue;
+                    if (yytok == LPAREN) {
+                        yyn = 53;
+                        continue;
                     }
                     yyn = 179;
                     continue;
@@ -459,10 +451,10 @@ class TypeCal implements TypeCalTokens {
                 case 29:
                     yyst[yysp] = 29;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 117:
@@ -489,10 +481,10 @@ class TypeCal implements TypeCalTokens {
                 case 30:
                     yyst[yysp] = 30;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 118:
@@ -519,10 +511,10 @@ class TypeCal implements TypeCalTokens {
                 case 31:
                     yyst[yysp] = 31;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 119:
@@ -549,10 +541,10 @@ class TypeCal implements TypeCalTokens {
                 case 32:
                     yyst[yysp] = 32;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 120:
@@ -579,10 +571,10 @@ class TypeCal implements TypeCalTokens {
                 case 33:
                     yyst[yysp] = 33;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 121:
@@ -609,10 +601,10 @@ class TypeCal implements TypeCalTokens {
                 case 34:
                     yyst[yysp] = 34;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 122:
@@ -639,17 +631,16 @@ class TypeCal implements TypeCalTokens {
                 case 35:
                     yyst[yysp] = 35;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 123:
-                    switch (yytok) {
-                        case ID:
-                            yyn = 60;
-                            continue;
+                    if (yytok == ID) {
+                        yyn = 60;
+                        continue;
                     }
                     yyn = 179;
                     continue;
@@ -657,10 +648,10 @@ class TypeCal implements TypeCalTokens {
                 case 36:
                     yyst[yysp] = 36;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 124:
@@ -687,10 +678,10 @@ class TypeCal implements TypeCalTokens {
                 case 37:
                     yyst[yysp] = 37;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 125:
@@ -717,10 +708,10 @@ class TypeCal implements TypeCalTokens {
                 case 38:
                     yyst[yysp] = 38;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 126:
@@ -747,10 +738,10 @@ class TypeCal implements TypeCalTokens {
                 case 39:
                     yyst[yysp] = 39;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 127:
@@ -777,10 +768,10 @@ class TypeCal implements TypeCalTokens {
                 case 40:
                     yyst[yysp] = 40;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 128:
@@ -807,10 +798,10 @@ class TypeCal implements TypeCalTokens {
                 case 41:
                     yyst[yysp] = 41;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 129:
@@ -820,10 +811,10 @@ class TypeCal implements TypeCalTokens {
                 case 42:
                     yyst[yysp] = 42;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 130:
@@ -850,10 +841,10 @@ class TypeCal implements TypeCalTokens {
                 case 43:
                     yyst[yysp] = 43;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 131:
@@ -880,10 +871,10 @@ class TypeCal implements TypeCalTokens {
                 case 44:
                     yyst[yysp] = 44;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 132:
@@ -900,10 +891,10 @@ class TypeCal implements TypeCalTokens {
                 case 45:
                     yyst[yysp] = 45;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 133:
@@ -930,10 +921,10 @@ class TypeCal implements TypeCalTokens {
                 case 46:
                     yyst[yysp] = 46;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 134:
@@ -950,7 +941,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 47:
                     yyst[yysp] = 47;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 135:
@@ -970,7 +961,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 48:
                     yyst[yysp] = 48;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 136:
@@ -980,10 +971,10 @@ class TypeCal implements TypeCalTokens {
                 case 49:
                     yyst[yysp] = 49;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 137:
@@ -993,10 +984,10 @@ class TypeCal implements TypeCalTokens {
                 case 50:
                     yyst[yysp] = 50;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 138:
@@ -1014,10 +1005,10 @@ class TypeCal implements TypeCalTokens {
                 case 51:
                     yyst[yysp] = 51;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 139:
@@ -1034,7 +1025,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 52:
                     yyst[yysp] = 52;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 140:
@@ -1044,10 +1035,10 @@ class TypeCal implements TypeCalTokens {
                 case 53:
                     yyst[yysp] = 53;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 141:
@@ -1073,7 +1064,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 54:
                     yyst[yysp] = 54;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 142:
@@ -1095,7 +1086,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 55:
                     yyst[yysp] = 55;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 143:
@@ -1104,7 +1095,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 56:
                     yyst[yysp] = 56;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 144:
@@ -1113,7 +1104,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 57:
                     yyst[yysp] = 57;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 145:
@@ -1122,7 +1113,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 58:
                     yyst[yysp] = 58;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 146:
@@ -1131,7 +1122,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 59:
                     yyst[yysp] = 59;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 147:
@@ -1141,10 +1132,10 @@ class TypeCal implements TypeCalTokens {
                 case 60:
                     yyst[yysp] = 60;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 148:
@@ -1153,7 +1144,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 61:
                     yyst[yysp] = 61;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 149:
@@ -1175,7 +1166,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 62:
                     yyst[yysp] = 62;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 150:
@@ -1184,7 +1175,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 63:
                     yyst[yysp] = 63;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 151:
@@ -1193,7 +1184,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 64:
                     yyst[yysp] = 64;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 152:
@@ -1202,7 +1193,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 65:
                     yyst[yysp] = 65;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 153:
@@ -1211,7 +1202,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 66:
                     yyst[yysp] = 66;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 154:
@@ -1227,7 +1218,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 67:
                     yyst[yysp] = 67;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 155:
@@ -1236,7 +1227,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 68:
                     yyst[yysp] = 68;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 156:
@@ -1245,7 +1236,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 69:
                     yyst[yysp] = 69;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 157:
@@ -1266,10 +1257,10 @@ class TypeCal implements TypeCalTokens {
                 case 70:
                     yyst[yysp] = 70;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 158:
@@ -1278,7 +1269,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 71:
                     yyst[yysp] = 71;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 159:
@@ -1293,7 +1284,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 72:
                     yyst[yysp] = 72;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 160:
@@ -1310,7 +1301,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 73:
                     yyst[yysp] = 73;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 161:
@@ -1331,17 +1322,16 @@ class TypeCal implements TypeCalTokens {
                 case 74:
                     yyst[yysp] = 74;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 162:
-                    switch (yytok) {
-                        case THEN:
-                            yyn = 78;
-                            continue;
+                    if (yytok == THEN) {
+                        yyn = 78;
+                        continue;
                     }
                     yyn = 179;
                     continue;
@@ -1349,10 +1339,10 @@ class TypeCal implements TypeCalTokens {
                 case 75:
                     yyst[yysp] = 75;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 163:
@@ -1369,10 +1359,10 @@ class TypeCal implements TypeCalTokens {
                 case 76:
                     yyst[yysp] = 76;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 164:
@@ -1393,17 +1383,16 @@ class TypeCal implements TypeCalTokens {
                 case 77:
                     yyst[yysp] = 77;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 165:
-                    switch (yytok) {
-                        case DO:
-                            yyn = 82;
-                            continue;
+                    if (yytok == DO) {
+                        yyn = 82;
+                        continue;
                     }
                     yyn = 179;
                     continue;
@@ -1411,24 +1400,23 @@ class TypeCal implements TypeCalTokens {
                 case 78:
                     yyst[yysp] = 78;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 166:
-                    switch (yytok) {
-                        case DO:
-                            yyn = 83;
-                            continue;
+                    if (yytok == DO) {
+                        yyn = 83;
+                        continue;
                     }
                     yyn = 179;
                     continue;
 
                 case 79:
                     yyst[yysp] = 79;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 167:
@@ -1443,7 +1431,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 80:
                     yyst[yysp] = 80;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 168:
@@ -1459,17 +1447,16 @@ class TypeCal implements TypeCalTokens {
                 case 81:
                     yyst[yysp] = 81;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 169:
-                    switch (yytok) {
-                        case ID:
-                            yyn = 44;
-                            continue;
+                    if (yytok == ID) {
+                        yyn = 44;
+                        continue;
                     }
                     yyn = 179;
                     continue;
@@ -1477,10 +1464,10 @@ class TypeCal implements TypeCalTokens {
                 case 82:
                     yyst[yysp] = 82;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 170:
@@ -1490,10 +1477,10 @@ class TypeCal implements TypeCalTokens {
                 case 83:
                     yyst[yysp] = 83;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 171:
@@ -1502,7 +1489,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 84:
                     yyst[yysp] = 84;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 172:
@@ -1519,7 +1506,7 @@ class TypeCal implements TypeCalTokens {
 
                 case 85:
                     yyst[yysp] = 85;
-                    if (++yysp>=yyst.length) {
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 173:
@@ -1537,10 +1524,10 @@ class TypeCal implements TypeCalTokens {
                 case 86:
                     yyst[yysp] = 86;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 174:
@@ -1557,10 +1544,10 @@ class TypeCal implements TypeCalTokens {
                 case 87:
                     yyst[yysp] = 87;
                     yysv[yysp] = (lexer.getValue()
-                                 );
+                    );
                     yytok = (next()
-                            );
-                    if (++yysp>=yyst.length) {
+                    );
+                    if (++yysp >= yyst.length) {
                         yyexpand();
                     }
                 case 175:
@@ -2310,19 +2297,19 @@ class TypeCal implements TypeCalTokens {
     }
 
     private int yyr14() { // declaration_list : declaration_list SEMI declaration
-        { yyrv = addDeclaration(yysv[yysp-3], (DeclarationNode)yysv[yysp-1]); }
+        { yyrv = addDeclaration(yysv[yysp-3], yysv[yysp-1]); }
         yysv[yysp-=3] = yyrv;
         return 72;
     }
 
     private int yyr15() { // declaration_list : declaration_list SEMI record_declaration
-        { yyrv = addDeclaration(yysv[yysp-3], (DeclarationNode)yysv[yysp-1]); }
+        { yyrv = addDeclaration(yysv[yysp-3], yysv[yysp-1]); }
         yysv[yysp-=3] = yyrv;
         return 72;
     }
 
     private int yyr16() { // declaration_list : declaration
-        { yyrv = addDeclaration(null, (DeclarationNode)yysv[yysp-1]); }
+        { yyrv = addDeclaration(null, yysv[yysp-1]); }
         yysv[yysp-=1] = yyrv;
         return 72;
     }
@@ -2362,10 +2349,10 @@ class TypeCal implements TypeCalTokens {
     }
 
     private int yypexp() {
-        switch (yyst[yysp-1]) {
-            case 27: return 52;
-            default: return 5;
+        if (yyst[yysp - 1] == 27) {
+            return 52;
         }
+        return 5;
     }
 
     private int yyr22() { // expr : term
@@ -2440,7 +2427,7 @@ class TypeCal implements TypeCalTokens {
 
     private int yyr43() { // other : DECIMAL
         {
-    yyrv = new ValueNode((Double)yysv[yysp-1], Type.REAL);
+    yyrv = new ValueNode(yysv[yysp-1], Type.REAL);
 }
         yysv[yysp-=1] = yyrv;
         return 9;
@@ -2448,7 +2435,7 @@ class TypeCal implements TypeCalTokens {
 
     private int yyr44() { // other : LITERAL
         {
-    yyrv = new ValueNode((Integer)yysv[yysp-1], Type.INTEGER);
+    yyrv = new ValueNode(yysv[yysp-1], Type.INTEGER);
 }
         yysv[yysp-=1] = yyrv;
         return 9;
@@ -2457,15 +2444,15 @@ class TypeCal implements TypeCalTokens {
     private int yyr13() { // record_declaration : ID ID
         { yyrv = new RecordDeclarationNode((String)yysv[yysp-2], (String)yysv[yysp-1]); }
         yysv[yysp-=2] = yyrv;
-        switch (yyst[yysp-1]) {
-            case 76: return 80;
-            default: return 10;
+        if (yyst[yysp - 1] == 76) {
+            return 80;
         }
+        return 10;
     }
 
     private int yyr17() { // record_definition : RECORD ID declaration_list END
         {
-    yyrv = new RecordDefinitionNode((String) yysv[yysp-3].toString(), (SymbolTable) yysv[yysp-2]);
+    yyrv = new RecordDefinitionNode(yysv[yysp-3].toString(), (SymbolTable) yysv[yysp-2]);
 }
         yysv[yysp-=4] = yyrv;
         return 11;
@@ -2489,10 +2476,11 @@ class TypeCal implements TypeCalTokens {
 
     private int yypref() {
         switch (yyst[yysp-1]) {
-            case 83: return 12;
-            case 82: return 12;
-            case 41: return 12;
-            case 0: return 12;
+            case 83:
+            case 82:
+            case 41:
+            case 0:
+                return 12;
             default: return 48;
         }
     }
@@ -2578,10 +2566,10 @@ class TypeCal implements TypeCalTokens {
     }
 
     private int yypstatement() {
-        switch (yyst[yysp-1]) {
-            case 41: return 66;
-            default: return 14;
+        if (yyst[yysp - 1] == 41) {
+            return 66;
         }
+        return 14;
     }
 
     private int yyr9() { // statements : statements SEMI statement
@@ -2669,17 +2657,12 @@ class TypeCal implements TypeCalTokens {
         return 18;
     }
 
-    protected String[] yyerrmsgs = {
-    };
-
-    private TypeCalLexer lexer;
-    private TypeCalPT pt;
+    private final TypeCalLexer lexer;
     private ParseNode calc;
 
     public TypeCal(java.io.InputStream in)
     {
         lexer = new TypeCalLexer(in);
-        pt = new TypeCalPT(this);
     }
 
 

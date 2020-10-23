@@ -1,7 +1,13 @@
 package edu.semo.jatzs.typecal.parsenode;
 
+/**
+ * Written By:
+ * Jordan Renaud, Alex Garza, Tushar Saini, Zach Philipp, Shane Hoocke (JATZS)
+ *
+ * Represents a statement that evaluates to null (void line)
+ */
 public class StatementNode implements ParseNode{
-    private ParseNode statement;
+    private final ParseNode statement;
     public StatementNode(ParseNode statement) {
         this.statement = statement;
     }

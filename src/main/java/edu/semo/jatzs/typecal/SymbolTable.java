@@ -4,10 +4,19 @@ import edu.semo.jatzs.typecal.parsenode.ValueNode;
 
 import java.util.Map;
 
+/**
+ * Written By:
+ * Dr. Robert Lowe
+ *
+ * Adapted By:
+ * Jordan Renaud, Alex Garza, Tushar Saini, Zach Philipp, Shane Hoocke (JATZS)
+ *
+ * Represents the assignment of a value to a variable reference
+ */
 public class SymbolTable
 {
     //the map of objects
-    private Map<String, ValueNode> map;
+    private final Map<String, ValueNode> map;
 
     //creates an empty symbol table
     public SymbolTable() {
@@ -42,21 +51,11 @@ public class SymbolTable
         return map.containsKey(name);
     }
 
-    public SymbolTable clone() {
+    @Override
+    public SymbolTable clone() throws CloneNotSupportedException {
+        super.clone();
         SymbolTable s = new SymbolTable();
         s.map.putAll(this.map);
         return s;
-    }
-
-    //returns the set of symbols
-    public java.util.Set<String> getSymbols() {
-        return map.keySet();
-    }
-
-    public void print() {
-        System.out.println("Symbol Table");
-        for(String s : this.getSymbols()){
-            System.out.printf("%s\t\t%s\n", s, this.getValue(s).toString());
-        }
     }
 }

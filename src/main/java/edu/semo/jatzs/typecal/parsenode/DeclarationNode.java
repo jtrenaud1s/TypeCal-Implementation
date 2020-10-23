@@ -2,9 +2,15 @@ package edu.semo.jatzs.typecal.parsenode;
 
 import edu.semo.jatzs.typecal.TypeCalPT;
 
+/**
+ * Written By:
+ * Jordan Renaud, Alex Garza, Tushar Saini, Zach Philipp, Shane Hoocke (JATZS)
+ *
+ * Represents a variable declaration
+ */
 public class DeclarationNode implements ParseNode {
-    private String name;
-    private Type type;
+    private final String name;
+    private final Type type;
 
     public DeclarationNode(String name, Type type) {
         this.name = name;

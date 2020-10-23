@@ -1,18 +1,24 @@
 package edu.semo.jatzs.typecal;
 
+/**
+ * Written By:
+ * Dr. Robert Lowe
+ *
+ * Adapted By:
+ * Jordan Renaud, Alex Garza, Tushar Saini, Zach Philipp, Shane Hoocke (JATZS)
+ *
+ * Represents the assignment of a value to a variable reference
+ */
 public class TypeCalPT {
     //symbol types    
     private static TypeCalPT instance;
 
-    //used for error reporting
-    private TypeCal parser;
-
     //symbol table
-    private SymbolTable sym;
+    private final SymbolTable sym;
 
 
-    public TypeCalPT(TypeCal parser) {
-        this.parser = parser;
+    public TypeCalPT() {
+        //used for error reporting
         sym = new SymbolTable();
         instance = this;
     }

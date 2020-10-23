@@ -1,8 +1,14 @@
 package edu.semo.jatzs.typecal.parsenode;
 
+/**
+ * Written By:
+ * Jordan Renaud, Alex Garza, Tushar Saini, Zach Philipp, Shane Hoocke (JATZS)
+ *
+ * Represents an if statement
+ */
 public class IfNode implements ParseNode{
-    private ParseNode condition;
-    private StatementListNode statements;
+    private final ParseNode condition;
+    private final StatementListNode statements;
 
     public IfNode(ParseNode condition, StatementListNode statements) {
         this.condition = condition;

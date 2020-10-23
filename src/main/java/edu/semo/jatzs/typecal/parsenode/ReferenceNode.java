@@ -2,8 +2,14 @@ package edu.semo.jatzs.typecal.parsenode;
 
 import edu.semo.jatzs.typecal.TypeCalPT;
 
+/**
+ * Written By:
+ * Jordan Renaud, Alex Garza, Tushar Saini, Zach Philipp, Shane Hoocke (JATZS)
+ *
+ * Represents a reference to a variable in a SymbolTable
+ */
 public class ReferenceNode implements ParseNode{
-    private String id;
+    private final String id;
     public ReferenceNode(String id) {
         this.id = id;
         if(!TypeCalPT.getInstance().getSym().hasName(id)) {
@@ -15,10 +21,6 @@ public class ReferenceNode implements ParseNode{
     @Override
     public Type getType() {
         return ((ValueNode)TypeCalPT.getInstance().getSym().getValue(id)).getType();
-    }
-
-    public void set(Object value) {
-        ((ValueNode)TypeCalPT.getInstance().getSym().getValue(id)).setValue(value);
     }
 
     @Override

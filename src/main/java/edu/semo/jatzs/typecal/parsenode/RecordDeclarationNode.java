@@ -3,9 +3,15 @@ package edu.semo.jatzs.typecal.parsenode;
 import edu.semo.jatzs.typecal.SymbolTable;
 import edu.semo.jatzs.typecal.TypeCalPT;
 
+/**
+ * Written By:
+ * Jordan Renaud, Alex Garza, Tushar Saini, Zach Philipp, Shane Hoocke (JATZS)
+ *
+ * Represents the creation of a new instance of a record from its definition
+ */
 public class RecordDeclarationNode extends DeclarationNode implements ParseNode{
-    private String record;
-    private String id;
+    private final String record;
+    private final String id;
     private SymbolTable table;
 
     public RecordDeclarationNode(String record, String id) {
@@ -18,16 +24,16 @@ public class RecordDeclarationNode extends DeclarationNode implements ParseNode{
                 System.out.println(record + " does not name a record type");
                 System.exit(0);
             }
-            this.table = ((SymbolTable)((ValueNode)TypeCalPT.getInstance().getSym().getValue(record)).getValue()).clone();
+            try {
+                this.table = ((SymbolTable)((ValueNode)TypeCalPT.getInstance().getSym().getValue(record)).getValue()).clone();
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+            }
             TypeCalPT.getInstance().getSym().assignValue(id, new ValueNode(this.table, Type.RECORD));
         } else {
             System.out.println(record + " does not exist");
             System.exit(0);
         }
-    }
-
-    public SymbolTable getSym() {
-        return this.table;
     }
 
     @Override
@@ -42,7 +48,11 @@ public class RecordDeclarationNode extends DeclarationNode implements ParseNode{
                 System.out.println(record + " does not name a record type");
                 System.exit(0);
             }
-            this.table = ((SymbolTable)((ValueNode)TypeCalPT.getInstance().getSym().getValue(record)).getValue()).clone();
+            try {
+                this.table = ((SymbolTable)((ValueNode)TypeCalPT.getInstance().getSym().getValue(record)).getValue()).clone();
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+            }
             TypeCalPT.getInstance().getSym().assignValue(id, new ValueNode(this.table, Type.RECORD));
         } else {
             System.out.println(record + " does not exist");
