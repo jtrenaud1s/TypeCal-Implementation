@@ -1,10 +1,10 @@
 package edu.semo.jatzs.typecal.parsenode;
 
-public class WhileNode implements ParseNode{
+public class IfNode implements ParseNode{
     private ParseNode condition;
     private StatementListNode statements;
 
-    public WhileNode(ParseNode condition, StatementListNode statements) {
+    public IfNode(ParseNode condition, StatementListNode statements) {
         this.condition = condition;
         this.statements = statements;
     }
@@ -16,7 +16,7 @@ public class WhileNode implements ParseNode{
 
     @Override
     public ParseNode evaluate() {
-        while((int)((ValueNode)condition.evaluate()).getValue() != 0) {
+        if((int)((ValueNode)condition.evaluate()).getValue() != 0) {
             statements.evaluate();
         }
         return null;

@@ -6,7 +6,7 @@
 %get lexer.getToken()
 %semantic Object : lexer.getValue()
 %token EQUAL ID ADD SUB MUL DIV EXP LITERAL LPAREN RPAREN SEMI DECIMAL UNARY EQ GEQ GREATER LEQ LESS NEQ
-%token REAL INT END RECORD DOT WHILE DO
+%token REAL INT END RECORD DOT WHILE DO IF THEN
 
 %right EQUAL
 %left ADD SUB
@@ -29,6 +29,7 @@ statement:  declaration
 | assign
 | record_definition
 | while
+| if
 | expr
 ;
 
@@ -72,6 +73,12 @@ record_definition: RECORD ID declaration_list END
 while: WHILE LPAREN expr RPAREN DO statements END
 {
     $$ = new WhileNode((ParseNode)$3, (StatementListNode)$6);
+}
+;
+
+if: IF LPAREN expr RPAREN THEN DO statements END
+{
+    $$ = new IfNode((ParseNode)$3, (StatementListNode)$7);
 }
 ;
 
