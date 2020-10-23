@@ -2,10 +2,12 @@ package edu.semo.jatzs.typecal;
 
 import edu.semo.jatzs.typecal.parsenode.ValueNode;
 
+import java.util.Map;
+
 public class SymbolTable
 {
     //the map of objects
-    private java.util.Map<String, ValueNode> map;
+    private Map<String, ValueNode> map;
 
     //creates an empty symbol table
     public SymbolTable() {

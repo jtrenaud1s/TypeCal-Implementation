@@ -34,11 +34,12 @@ public class BinaryOperationNode implements ParseNode{
             System.out.println("Invalid Type");
             System.exit(-1);
         }
+        this.type = (left.getType().equals(Type.INTEGER) && right.getType().equals(Type.INTEGER)) ? Type.INTEGER : Type.REAL;
     }
 
     @Override
     public Type getType() {
-        return (left.getType().equals(Type.INTEGER) && right.getType().equals(Type.INTEGER)) ? Type.INTEGER : Type.REAL;
+        return this.type;
     }
 
     @Override
@@ -81,9 +82,9 @@ public class BinaryOperationNode implements ParseNode{
         }
 
         if(type == Type.INTEGER) {
-            return new ValueNode(Integer.valueOf((int) result), Type.INTEGER);
+            return new ValueNode((int) result, Type.INTEGER);
         } else {
-            return new ValueNode(Double.valueOf(result), Type.REAL);
+            return new ValueNode(result, Type.REAL);
         }
     }
 }

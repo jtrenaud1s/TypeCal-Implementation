@@ -11,8 +11,6 @@ public class RecordReferenceNode extends ReferenceNode implements ParseNode{
         super(id);
         this.id = id;
         this.child = child;
-
-
     }
 
     @Override
@@ -27,12 +25,11 @@ public class RecordReferenceNode extends ReferenceNode implements ParseNode{
             if(s.hasName(this.child)) {
                 return (ValueNode) s.getValue(this.child);
             } else {
-                System.out.println("Reference " + this.id + "." + this.child + " does not exist!a");
+                System.out.println("Reference " + this.id + "." + this.child + " does not exist!");
                 System.exit(0);
             }
         } else {
-            System.out.println("Reference " + this.id + " does not exist!b");
-            TypeCalPT.getInstance().getSym().print();
+            System.out.println("Record " + this.id + " does not exist!b");
             System.exit(0);
         }
         return null;
