@@ -8,7 +8,7 @@ public class GroupNode implements ParseNode{
 
     @Override
     public Type getType() {
-        return group.evaluate().getType();
+        return group.getType();
     }
 
     @Override

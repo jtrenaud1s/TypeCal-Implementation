@@ -12,6 +12,12 @@ public class StatementNode implements ParseNode{
 
     @Override
     public ParseNode evaluate() {
-        return statement.evaluate();
+        ParseNode stmt =  statement.evaluate();
+        if(stmt != null) {
+            if(stmt.getType().equals(Type.INTEGER) || stmt.getType().equals(Type.REAL)) {
+                System.out.println(((ValueNode)stmt).getValue());
+            }
+        }
+        return null;
     }
 }

@@ -10,7 +10,8 @@ public class RecordDefinitionNode implements ParseNode{
     public RecordDefinitionNode(String name, SymbolTable sym) {
         this.name = name;
         this.sym = sym;
-        TypeCalPT.getInstance().getSym().assignValue(name, this);
+        TypeCalPT.getInstance().getSym().assignValue(name, new ValueNode(this.sym, Type.RECORD_DEF));
+
     }
 
     @Override
@@ -20,7 +21,7 @@ public class RecordDefinitionNode implements ParseNode{
 
     @Override
     public ParseNode evaluate() {
-
+        TypeCalPT.getInstance().getSym().assignValue(name, new ValueNode(this.sym, Type.RECORD_DEF));
         return this;
     }
 

@@ -1,4 +1,4 @@
-// Output created by jacc on Thu Oct 22 16:46:56 CDT 2020
+// Output created by jacc on Thu Oct 22 18:27:00 CDT 2020
 
 package edu.semo.jatzs.typecal;
 import edu.semo.jatzs.typecal.parsenode.*;
@@ -1189,20 +1189,19 @@ class TypeCal implements TypeCalTokens {
     }
 
     private int yyr11() { // declaration_list : declaration_list SEMI declaration
-        { yyrv = addDeclaration(yysv[yysp-3], yysv[yysp-1]); }
+        { yyrv = addDeclaration(yysv[yysp-3], (DeclarationNode)yysv[yysp-1]); }
         yysv[yysp-=3] = yyrv;
         return 44;
     }
 
     private int yyr12() { // declaration_list : declaration
-        { yyrv = addDeclaration(null, yysv[yysp-1]); }
+        { yyrv = addDeclaration(null, (DeclarationNode)yysv[yysp-1]); }
         yysv[yysp-=1] = yyrv;
         return 44;
     }
 
     private int yyr23() { // exp : LPAREN expr RPAREN
         {
-   System.out.println("Group Node " + yysv[yysp-2]);
        yyrv = new GroupNode((ParseNode) yysv[yysp-2]);
    }
         yysv[yysp-=3] = yyrv;
@@ -1210,21 +1209,16 @@ class TypeCal implements TypeCalTokens {
     }
 
     private int yyr24() { // exp : ref
+        {
         yyrv = yysv[yysp-1];
-        LiteralNode<Double> value;
-        ReferenceNode ref = (ReferenceNode)yyrv;
-        if(ref.evaluate().getType().equals(Type.INTEGER) || ref.evaluate().getType().equals(Type.REAL)){
-           value = (LiteralNode<Double>) ref.evaluate();
-           System.out.println(value.getValue());
-        }
+   }
         yysv[yysp-=1] = yyrv;
         return 4;
     }
 
     private int yyr25() { // exp : DECIMAL
         {
-          System.out.println("Got double " + yysv[yysp-1]);
-          yyrv = new LiteralNode<Double>((Double)yysv[yysp-1]);
+          yyrv = new ValueNode((Double)yysv[yysp-1], Type.REAL);
       }
         yysv[yysp-=1] = yyrv;
         return 4;
@@ -1232,8 +1226,7 @@ class TypeCal implements TypeCalTokens {
 
     private int yyr26() { // exp : LITERAL
         {
-        System.out.println("Got Integer " +  yysv[yysp-1]);
-       yyrv = new LiteralNode<Integer>((Integer)yysv[yysp-1]);
+       yyrv = new ValueNode((Integer)yysv[yysp-1], Type.INTEGER);
    }
         yysv[yysp-=1] = yyrv;
         return 4;
@@ -1418,7 +1411,8 @@ class TypeCal implements TypeCalTokens {
         if(sym == null)
             sym = new SymbolTable();
         SymbolTable table = (SymbolTable)sym;
-        table.assignValue(((DeclarationNode)decl).getName(), decl);
+        DeclarationNode declaration = (DeclarationNode)decl;
+        table.assignValue(declaration.getName(), new ValueNode(null, declaration.getType()));
         return table;
     }
 

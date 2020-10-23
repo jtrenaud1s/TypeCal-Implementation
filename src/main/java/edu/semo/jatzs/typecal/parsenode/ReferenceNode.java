@@ -14,21 +14,16 @@ public class ReferenceNode implements ParseNode{
 
     @Override
     public Type getType() {
-        return ((ParseNode)TypeCalPT.getInstance().getSym().getValue(id)).getType();
+        return ((ValueNode)TypeCalPT.getInstance().getSym().getValue(id)).getType();
     }
 
     public void set(Object value) {
-        TypeCalPT.getInstance().getSym().assignValue(this.id, value);
-    }
-
-    public Object getValue() {
-        System.out.println(id);
-        return ((LiteralNode)((DeclarationNode)TypeCalPT.getInstance().getSym().getValue(id)).evaluate()).getValue();
+        ((ValueNode)TypeCalPT.getInstance().getSym().getValue(id)).setValue(value);
     }
 
     @Override
     public ParseNode evaluate() {
-        return ((ParseNode) TypeCalPT.getInstance().getSym().getValue(this.id)).evaluate();
+        return ((ValueNode) TypeCalPT.getInstance().getSym().getValue(this.id)).evaluate();
     }
 
     public String getId() {
