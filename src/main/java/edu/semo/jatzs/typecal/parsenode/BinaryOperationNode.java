@@ -1,11 +1,17 @@
 package edu.semo.jatzs.typecal.parsenode;
 
+/**
+ * Written By:
+ * Jordan Renaud, Alex Garza, Tushar Saini, Zach Philipp, Shane Hoocke (JATZS)
+ *
+ * Represents any supported Binary Operation
+ */
 public class BinaryOperationNode implements ParseNode{
-    private ParseNode left;
-    private ParseNode right;
-    private String operation;
+    private final ParseNode left;
+    private final ParseNode right;
+    private final String operation;
     private Type type;
-    private boolean typeError = false;
+
     public BinaryOperationNode(ParseNode left, String c, ParseNode right) {
         this.left = left;
         this.right = right;
@@ -19,6 +25,7 @@ public class BinaryOperationNode implements ParseNode{
             right = right.evaluate();
         }
 
+        boolean typeError = false;
         if(left.getType() == Type.REAL) {
             type = Type.REAL;
         } else if(left.getType() != Type.INTEGER) {

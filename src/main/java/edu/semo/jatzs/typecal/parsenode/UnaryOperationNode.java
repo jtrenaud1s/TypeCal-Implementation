@@ -1,8 +1,14 @@
 package edu.semo.jatzs.typecal.parsenode;
 
+/**
+ * Written By:
+ * Jordan Renaud, Alex Garza, Tushar Saini, Zach Philipp, Shane Hoocke (JATZS)
+ *
+ * Represents a unary negation
+ */
 public class UnaryOperationNode implements ParseNode {
-    private String operation;
-    private ParseNode right;
+    private final String operation;
+    private final ParseNode right;
 
     public UnaryOperationNode(String operation, ParseNode right) {
         this.operation = operation;
@@ -30,13 +36,10 @@ public class UnaryOperationNode implements ParseNode {
             rval = (Double) ((ValueNode) right.evaluate()).getValue();
         }
 
-        switch(operation) {
-            case "-":
-                result = rval * -1;
-                break;
-            default:
-                result = 0;
-                break;
+        if ("-".equals(operation)) {
+            result = rval * -1;
+        } else {
+            result = 0;
         }
 
         if(getType() == Type.INTEGER) {

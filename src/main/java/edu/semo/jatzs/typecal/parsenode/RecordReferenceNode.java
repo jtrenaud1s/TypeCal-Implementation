@@ -3,9 +3,15 @@ package edu.semo.jatzs.typecal.parsenode;
 import edu.semo.jatzs.typecal.SymbolTable;
 import edu.semo.jatzs.typecal.TypeCalPT;
 
+/**
+ * Written By:
+ * Jordan Renaud, Alex Garza, Tushar Saini, Zach Philipp, Shane Hoocke (JATZS)
+ *
+ * Represents a reference to a field within a record instance
+ */
 public class RecordReferenceNode extends ReferenceNode implements ParseNode{
-    private String id;
-    private String child;
+    private final String id;
+    private final String child;
 
     public RecordReferenceNode(String id, String child){
         super(id);

@@ -3,6 +3,15 @@ package edu.semo.jatzs.typecal;
 import java.io.InputStream;
 import java.util.Scanner;
 
+/**
+ * Written By:
+ * Dr. Robert Lowe
+ *
+ * Adapted By:
+ * Jordan Renaud, Alex Garza, Tushar Saini, Zach Philipp, Shane Hoocke (JATZS)
+ *
+ * Represents the assignment of a value to a variable reference
+ */
 public class TypeCalLexer implements TypeCalTokens {
     //constructor
     public TypeCalLexer(final InputStream in) {

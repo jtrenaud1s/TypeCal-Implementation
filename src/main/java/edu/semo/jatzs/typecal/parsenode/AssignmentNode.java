@@ -1,11 +1,15 @@
 package edu.semo.jatzs.typecal.parsenode;
 
-import edu.semo.jatzs.typecal.TypeCalPT;
-
+/**
+ * Written By:
+ * Jordan Renaud, Alex Garza, Tushar Saini, Zach Philipp, Shane Hoocke (JATZS)
+ *
+ * Represents the assignment of a value to a variable reference
+ */
 public class AssignmentNode implements ParseNode{
 
-    private ReferenceNode referenceNode;
-    private ParseNode parseNode;
+    private final ReferenceNode referenceNode;
+    private final ParseNode parseNode;
     private boolean typeError = false;
 
     public AssignmentNode(ReferenceNode referenceNode, ParseNode parseNode) {

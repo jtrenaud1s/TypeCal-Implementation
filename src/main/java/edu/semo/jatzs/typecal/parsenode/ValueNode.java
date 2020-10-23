@@ -1,8 +1,14 @@
 package edu.semo.jatzs.typecal.parsenode;
 
+/**
+ * Written By:
+ * Jordan Renaud, Alex Garza, Tushar Saini, Zach Philipp, Shane Hoocke (JATZS)
+ *
+ * Represents a value to be stored in some Symbol Table
+ */
 public class ValueNode implements ParseNode{
     private Object value;
-    private Type type;
+    private final Type type;
 
     public ValueNode(Object value, Type type) {
         this.value = value;
