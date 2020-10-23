@@ -1407,7 +1407,7 @@ class TypeCal implements TypeCalTokens {
         return calc;
     }
 
-    SymbolTable addDeclaration(Object sym, Object decl) {
+    public SymbolTable addDeclaration(Object sym, Object decl) {
         if(sym == null)
             sym = new SymbolTable();
         SymbolTable table = (SymbolTable)sym;
@@ -1419,7 +1419,6 @@ class TypeCal implements TypeCalTokens {
 
     public int next() {
         lexer.next();
-
         return lexer.getToken();
     }
 
