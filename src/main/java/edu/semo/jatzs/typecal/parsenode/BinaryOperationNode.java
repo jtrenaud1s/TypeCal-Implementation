@@ -76,6 +76,24 @@ public class BinaryOperationNode implements ParseNode{
             case "**":
                 result = Math.pow(lval, rval);
                 break;
+            case "<":
+                result = lval < rval ? 1 : 0;
+                break;
+            case ">":
+                result = lval > rval ? 1 : 0;
+                break;
+            case "<=":
+                result = lval <= rval ? 1 : 0;
+                break;
+            case ">=":
+                result = lval >= rval ? 1 : 0;
+                break;
+            case "==":
+                result = lval == rval ? 1 : 0;
+                break;
+            case "~=":
+                result = lval != rval ? 1 : 0;
+                break;
             default:
                 result = 0;
                 break;

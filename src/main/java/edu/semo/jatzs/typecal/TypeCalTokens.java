@@ -1,4 +1,4 @@
-// Output created by jacc on Thu Oct 22 22:15:20 CDT 2020
+// Output created by jacc on Fri Oct 23 15:51:09 CDT 2020
 
 package edu.semo.jatzs.typecal;
 
@@ -7,20 +7,28 @@ interface TypeCalTokens {
     int ADD = 1;
     int DECIMAL = 2;
     int DIV = 3;
-    int DOT = 4;
-    int END = 5;
-    int EQUAL = 6;
-    int EXP = 7;
-    int ID = 8;
-    int INT = 9;
-    int LITERAL = 10;
-    int LPAREN = 11;
-    int MUL = 12;
-    int REAL = 13;
-    int RECORD = 14;
-    int RPAREN = 15;
-    int SEMI = 16;
-    int SUB = 17;
-    int UNARY = 18;
-    int error = 19;
+    int DO = 4;
+    int DOT = 5;
+    int END = 6;
+    int EQ = 7;
+    int EQUAL = 8;
+    int EXP = 9;
+    int GEQ = 10;
+    int GREATER = 11;
+    int ID = 12;
+    int INT = 13;
+    int LEQ = 14;
+    int LESS = 15;
+    int LITERAL = 16;
+    int LPAREN = 17;
+    int MUL = 18;
+    int NEQ = 19;
+    int REAL = 20;
+    int RECORD = 21;
+    int RPAREN = 22;
+    int SEMI = 23;
+    int SUB = 24;
+    int UNARY = 25;
+    int WHILE = 26;
+    int error = 27;
 }
