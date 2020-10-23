@@ -3,8 +3,7 @@ package edu.semo.jatzs.typecal;
 import java.io.InputStream;
 import java.util.Scanner;
 
-public class TypeCalLexer implements TypeCalTokens
-{
+public class TypeCalLexer implements TypeCalTokens {
     //constructor
     public TypeCalLexer(final InputStream in) {
         line = "";
@@ -92,25 +91,28 @@ public class TypeCalLexer implements TypeCalTokens
 
 
     //matches an id
-    private void idOrKw() 
-    {
+    private void idOrKw() {
         StringBuilder sb = new StringBuilder();
 
-        while(Character.isLetter(currentChar)) {
+        while (Character.isLetter(currentChar)) {
             sb.append(currentChar);
             nextChar();
         }
 
         value = sb.toString();
-        
-        if(value.equals("real")) {
+
+        if (value.equals("real")) {
             token = REAL;
-        } else if(value.equals("end")) {
+        } else if (value.equals("end")) {
             token = END;
-        } else if(value.equals("record")) { 
+        } else if (value.equals("record")) {
             token = RECORD;
-        } else if(value.equals("int")) {
+        } else if (value.equals("int")) {
             token = INT;
+        } else if (value.equals("while")) {
+            token = WHILE;
+        } else if (value.equals("do")) {
+            token = DO;
         } else {
             token = ID;
             value = sb.toString();
@@ -120,20 +122,19 @@ public class TypeCalLexer implements TypeCalTokens
 
 
     //matches literals 
-    private void literal()
-    {
+    private void literal() {
         StringBuilder sb = new StringBuilder();
 
         //grab the whole number part
-        while(Character.isDigit(currentChar)){
+        while (Character.isDigit(currentChar)) {
             sb.append(currentChar);
             nextChar();
         }
         //grab the fractional part (if there is one)
-        if(currentChar == '.') {
+        if (currentChar == '.') {
             sb.append('.');
             nextChar();
-            while(Character.isDigit(currentChar)) {
+            while (Character.isDigit(currentChar)) {
                 sb.append(currentChar);
                 nextChar();
             }
@@ -150,8 +151,8 @@ public class TypeCalLexer implements TypeCalTokens
     // load the next token
     public void next() {
         // the keyword tokens
-        final char[] c = { '+', '-', '/', '=', ';', '(', ')', '.', '-' };
-        final int[] ct = { ADD, SUB, DIV, EQUAL, SEMI, LPAREN, RPAREN, DOT, UNARY };
+        final char[] c = {'+', '-', '/', '=', ';', '(', ')', '.', '-'};
+        final int[] ct = {ADD, SUB, DIV, EQUAL, SEMI, LPAREN, RPAREN, DOT, UNARY};
 
         // skip whitespace
         while (Character.isWhitespace(currentChar)) {
@@ -169,16 +170,16 @@ public class TypeCalLexer implements TypeCalTokens
         value = String.valueOf(currentChar);
 
         // match strings
-        if(Character.isLetter(currentChar)) {
+        if (Character.isLetter(currentChar)) {
             idOrKw();
-        } else if(Character.isDigit(currentChar)) {
+        } else if (Character.isDigit(currentChar)) {
             literal();
-        } else if(singleMatch(c, ct)) {
+        } else if (singleMatch(c, ct)) {
 
             nextChar();
-        } else if(currentChar == '*') {
+        } else if (currentChar == '*') {
             nextChar();
-            if(currentChar == '*') {
+            if (currentChar == '*') {
                 token = EXP;
                 value = null;
                 nextChar();
@@ -186,14 +187,54 @@ public class TypeCalLexer implements TypeCalTokens
                 token = MUL;
                 value = null;
             }
+        } else if (currentChar == '<') {
+            nextChar();
+            if (currentChar == '=') {
+                token = LEQ;
+                value = null;
+                nextChar();
+            } else {
+                token = LESS;
+                value = null;
+            }
+        } else if (currentChar == '>') {
+            nextChar();
+            if (currentChar == '=') {
+                token = GEQ;
+                value = null;
+                nextChar();
+            } else {
+                token = GREATER;
+                value = null;
+            }
+        } else if (currentChar == '=') {
+            nextChar();
+            if (currentChar == '=') {
+                token = EQ;
+                value = null;
+                nextChar();
+            } else {
+                token = EQUAL;
+                value = null;
+            }
+        } else if (currentChar == '~') {
+            nextChar();
+            if (currentChar == '=') {
+                token = NEQ;
+                value = null;
+                nextChar();
+            } else {
+                token = error;
+                value = null;
+            }
         } else {
             currentChar = ' ';
         }
-}
+    }
 
     // convert the current token to a string
     public String toString() {
-        String [] label = new String[error+1];
+        String[] label = new String[error + 1];
 
         label[EQUAL] = "EQUAL";
         label[ID] = "ID";
@@ -213,6 +254,13 @@ public class TypeCalLexer implements TypeCalTokens
         label[INT] = "INTEGER";
         label[ENDINPUT] = "ENDINPUT";
         label[DECIMAL] = "DECIMAL";
+        label[UNARY] = "UNARY";
+        label[EQ] = "EQ";
+        label[GEQ] = "GEQ";
+        label[GREATER] = "GREATER";
+        label[LEQ] = "LEQ";
+        label[LESS] = "LESS";
+        label[NEQ] = "NEQ";
         label[error] = "error";
 
         return label[token] + ": " + value;
@@ -224,11 +272,11 @@ public class TypeCalLexer implements TypeCalTokens
 
         do {
             lexer.next();
-            if(lexer.getToken() == error) {
+            if (lexer.getToken() == error) {
                 lexer.printError("Invalid Token");
             } else {
                 System.out.println(lexer);
             }
-        } while(lexer.getToken() != ENDINPUT);
+        } while (lexer.getToken() != ENDINPUT);
     }
 }

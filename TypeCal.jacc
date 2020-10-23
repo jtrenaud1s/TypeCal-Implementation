@@ -5,12 +5,13 @@
 %next next()
 %get lexer.getToken()
 %semantic Object : lexer.getValue()
-%token EQUAL ID ADD SUB MUL DIV EXP LITERAL LPAREN RPAREN SEMI DECIMAL UNARY
-%token REAL INT END RECORD DOT
+%token EQUAL ID ADD SUB MUL DIV EXP LITERAL LPAREN RPAREN SEMI DECIMAL UNARY EQ GEQ GREATER LEQ LESS NEQ
+%token REAL INT END RECORD DOT WHILE DO
 
 %right EQUAL
 %left ADD SUB
 %left MUL DIV
+%left EQ GEQ GREATER LEQ LESS NEQ
 %right EXP
 
 %{import edu.semo.jatzs.typecal.parsenode.*;%}
@@ -27,6 +28,7 @@ statement:  declaration
 | record_declaration
 | assign
 | record_definition
+| while
 | expr
 ;
 
@@ -67,6 +69,12 @@ record_definition: RECORD ID declaration_list END
 }
 ;
 
+while: WHILE LPAREN expr RPAREN DO statements END
+{
+    $$ = new WhileNode((ParseNode)$3, (StatementListNode)$6);
+}
+;
+
 assign: ref EQUAL expr
 {
     $$ = new AssignmentNode((ReferenceNode)$1, (ParseNode)$3);
@@ -99,9 +107,39 @@ term: factor
 }
 ;
 
-factor: unary EXP factor
+factor: equality EXP factor
 {
     $$ = new BinaryOperationNode((ParseNode)$1, "**", (ParseNode) $3);
+}
+| equality
+;
+
+equality: equality EQ relational
+{
+    $$ = new BinaryOperationNode((ParseNode)$1, "==", (ParseNode) $3);
+}
+| equality NEQ relational
+{
+    $$ = new BinaryOperationNode((ParseNode)$1, "~=", (ParseNode) $3);
+}
+| relational
+;
+
+relational: relational LESS unary
+{
+    $$ = new BinaryOperationNode((ParseNode)$1, "<", (ParseNode) $3);
+}
+| relational GREATER unary
+{
+    $$ = new BinaryOperationNode((ParseNode)$1, ">", (ParseNode) $3);
+}
+| relational LEQ unary
+{
+    $$ = new BinaryOperationNode((ParseNode)$1, "<=", (ParseNode) $3);
+}
+| relational GEQ unary
+{
+    $$ = new BinaryOperationNode((ParseNode)$1, ">=", (ParseNode) $3);
 }
 | unary
 ;
