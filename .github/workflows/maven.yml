@@ -25,5 +25,5 @@ jobs:
     - name: Release Jar
       uses: actions/upload-artifact@v2
       with:
-        name: TypeCal.jar
+        name: TypeCal.zip
         path: target/TypeCal-1.0-SNAPSHOT.jar
