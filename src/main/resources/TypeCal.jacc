@@ -60,6 +60,8 @@ declaration_list: declaration_list SEMI declaration
 { $$ = addDeclaration($1, (DeclarationNode)$3); }
 | declaration
 { $$ = addDeclaration(null, (DeclarationNode)$1); }
+| record_delaration
+{ $$ = addDeclaration(null, (RecordDeclarationNode)$1); }
 ;
 
 

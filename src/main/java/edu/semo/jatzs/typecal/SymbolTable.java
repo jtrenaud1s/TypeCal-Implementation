@@ -13,7 +13,7 @@ import java.util.Map;
  *
  * Represents the assignment of a value to a variable reference
  */
-public class SymbolTable
+public class SymbolTable implements Cloneable
 {
     //the map of objects
     private final Map<String, ValueNode> map;
